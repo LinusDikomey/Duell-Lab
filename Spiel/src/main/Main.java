@@ -7,8 +7,9 @@ public class Main {
 
 	static Board board;
 	
-	/*
-	 * Start game
+	/**
+	 * Startet das Spiel
+	 * @param args
 	 */
 	public static void main(String[] args) {
 		board = new Board();
