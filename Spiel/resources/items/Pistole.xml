@@ -1,0 +1,10 @@
+<Item>
+	<Cooldown>50</Cooldown>
+	<Fernkampf mode = "projectile">
+		<Range>10</Range>
+		<Damage>2</Damage>
+		<Magazine>6</Magazine>
+		<ReloadTime>60</ReloadTime>
+		<Speed>2.4</Speed>
+	</Fernkampf>
+</Item>

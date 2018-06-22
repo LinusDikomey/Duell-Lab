@@ -1,0 +1,8 @@
+<Item>
+	<Cooldown>50</Cooldown>
+	<Nahkampf mode = "aoe">
+		<Range>2</Range>
+		<Offset>2</Offset>
+		<Damage>10</Damage>
+	</Nahkampf>
+</Item>
