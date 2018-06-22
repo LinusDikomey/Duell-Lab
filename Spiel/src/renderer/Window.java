@@ -10,7 +10,6 @@ import world.Board;
 public class Window extends JFrame {
 	private static final long serialVersionUID = 1L;
 
-	private int sizeX, sizeY;
 	private MasterRenderer r;
 	
 	public Window(int sizeX, int sizeY, boolean fullscreen, Board b) {
@@ -29,8 +28,6 @@ public class Window extends JFrame {
 			displayX = sizeX - 18;
 			displayY = sizeY - 47;
 		}
-		this.sizeX = sizeX;
-		this.sizeY = sizeY;
 		
 		setSize(sizeX, sizeY);
 		
