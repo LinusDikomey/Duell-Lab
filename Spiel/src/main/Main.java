@@ -7,7 +7,9 @@ public class Main {
 
 	static Board board;
 	
-	
+	/*
+	 * Start game
+	 */
 	public static void main(String[] args) {
 		board = new Board();
 		Window w = new Window(800, 450, true, board);
