@@ -1,0 +1,42 @@
+<Loot>
+	<Item name = "Dolch">
+		<Wahrscheinlichkeit>5</Wahrscheinlichkeit>
+	</Item>
+	<Item name="Schwert">
+		<Wahrscheinlichkeit>5</Wahrscheinlichkeit>
+    </Item>
+	<Item name="MG">
+		<Wahrscheinlichkeit>5</Wahrscheinlichkeit>
+    </Item>
+	<Item name="Pistole">
+		<Wahrscheinlichkeit>5</Wahrscheinlichkeit>
+    </Item>
+	<Item name="Kriegshammer">
+		<Wahrscheinlichkeit>5</Wahrscheinlichkeit>
+    </Item>
+	<Item name="Kriegsaxt">
+		<Wahrscheinlichkeit>5</Wahrscheinlichkeit>
+    </Item>
+	<Item name="Bogen">
+		<Wahrscheinlichkeit>5</Wahrscheinlichkeit>
+    </Item>
+	<Item name="Laser">
+		<Wahrscheinlichkeit>5</Wahrscheinlichkeit>
+    </Item>
+	<Item name="Shotgun">
+		<Wahrscheinlichkeit>5</Wahrscheinlichkeit>
+    </Item>
+	<Item name="Mauer">
+		<Wahrscheinlichkeit>60</Wahrscheinlichkeit>
+    </Item>
+	<Item name="Sniper">
+		<Wahrscheinlichkeit>5</Wahrscheinlichkeit>
+    </Item>
+	<Item name="Granate">
+		<Wahrscheinlichkeit>5</Wahrscheinlichkeit>
+    </Item>
+	<Item name="Raketenwerfer">
+		<Wahrscheinlichkeit>5</Wahrscheinlichkeit>
+    </Item>
+	
+</Loot>
