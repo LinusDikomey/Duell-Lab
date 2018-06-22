@@ -15,7 +15,7 @@ public class BoardRenderer  {
 	public BoardRenderer(int sizeX, int sizeY, Board b) {
 		this.sizeX = sizeX;
 		this.sizeY = sizeY;
-		useX = !(sizeX * (9 / 16) > sizeY);
+		useX = !(sizeX * 9 / 16 > sizeY);
 		board = b;
 	}
 	
