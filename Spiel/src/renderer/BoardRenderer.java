@@ -2,6 +2,7 @@ package renderer;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 import world.Board;
@@ -14,7 +15,8 @@ public class BoardRenderer  {
 	boolean useXButton;
 	Board board;
 	private ImageLoader loader;
-	int startButtonSize;
+	public int startButtonSize;
+	public Rectangle startButtonRec;
 	
 	public BoardRenderer(int sizeX, int sizeY, Board b, ImageLoader loader) {
 		this.sizeX = sizeX;
@@ -29,11 +31,12 @@ public class BoardRenderer  {
 		if(startButtonSize * startButton.getHeight() > sizeY / 2) {
 			startButtonSize = sizeY / 2 / startButton.getHeight();
 		}
+		startButtonRec = new Rectangle(sizeX / 4, sizeY / 4, startButton.getWidth() * startButtonSize, startButton.getHeight() * startButtonSize);
 	}
 	
 	public void renderMenu(Graphics g) {
 		BufferedImage startButton = loader.getImage("startButton");
-		g.drawImage(startButton, sizeX / 4, sizeY / 4, startButton.getWidth() * startButtonSize, startButton.getHeight() * startButtonSize, null);
+		g.drawImage(startButton, startButtonRec.x, startButtonRec.y, startButtonRec.width, startButtonRec.height, null);
 	}
 	
 	public void renderGame(Graphics g) {

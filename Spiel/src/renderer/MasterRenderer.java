@@ -9,22 +9,23 @@ import world.Board;
 public class MasterRenderer extends JLabel {
 	private static final long serialVersionUID = 1L;
 	
-	int sizeX, sizeY;
-	BoardRenderer boardRenderer;
-	public int view = 1;
+	public int sizeX, sizeY;
+	public BoardRenderer boardRenderer;
+	public int currentView = 0;
 	
 	public MasterRenderer(int sizeX, int sizeY, Board b) {
 		ImageLoader loader = new ImageLoader();
 		this.sizeX = sizeX;
 		this.sizeY = sizeY;
 		boardRenderer = new BoardRenderer(sizeX, sizeY, b, loader);
+		
 	}
 	
 	@Override
 	public void paint(Graphics g) {
-		if(view == View.MENU) {
+		if(currentView == View.MENU) {
 			boardRenderer.renderMenu(g);
-		}else if(view == View.BOARD) {
+		}else if(currentView == View.BOARD) {
 			boardRenderer.renderGame(g);
 		}
 	}

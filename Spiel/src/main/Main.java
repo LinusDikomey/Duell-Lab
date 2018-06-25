@@ -1,6 +1,7 @@
 package main;
 
 import logic.MainLogic;
+import renderer.Listener;
 import renderer.Window;
 import world.Board;
 
@@ -18,6 +19,9 @@ public class Main {
 		w.setVisible(true);
 		
 		MainLogic logic = new MainLogic(w.renderer);
+		Listener listener = new Listener(logic);
+		w.addMouseListener(listener);
+		w.addKeyListener(listener);
 		logic.startGameLoop();
 	}
 }
