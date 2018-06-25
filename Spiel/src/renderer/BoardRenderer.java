@@ -1,5 +1,6 @@
 package renderer;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -14,7 +15,7 @@ public class BoardRenderer  {
 	boolean useXButton;
 	Board board;
 	private ImageLoader loader;
-	public int startButtonSize;
+	public double startButtonSize;
 	public Rectangle startButtonRec;
 	
 	public BoardRenderer(int sizeX, int sizeY, Board b, ImageLoader loader) {
@@ -27,11 +28,11 @@ public class BoardRenderer  {
 		loader.loadImage("tiles/ground", "ground");
 		loader.loadImage("gui/startButton", "startButton");
 		BufferedImage startButton = loader.getImage("startButton");
-		startButtonSize = sizeX / 2 / startButton.getWidth();
+		startButtonSize = sizeX / 2f / startButton.getWidth();
 		if(startButtonSize * startButton.getHeight() > sizeY / 2) {
-			startButtonSize = sizeY / 2 / startButton.getHeight();
+			startButtonSize = sizeY / 2f / startButton.getHeight();
 		}
-		startButtonRec = new Rectangle(sizeX / 4, sizeY / 4, startButton.getWidth() * startButtonSize, startButton.getHeight() * startButtonSize);
+		startButtonRec = new Rectangle(sizeX / 4, sizeY / 4, (int) (startButton.getWidth() * startButtonSize), (int) (startButton.getHeight() * startButtonSize));
 	}
 	
 	public void renderMenu(Graphics g) {
@@ -46,7 +47,7 @@ public class BoardRenderer  {
 		else tileSize = sizeY / board.SIZE_Y;
 		
 		for(int y = 0; y < board.SIZE_Y; y++) {
-			for(int x = 0; x < board.SIZE_X; x++) {
+			for(int x = 0; x < board.SIZE_X; x++) { 
 				if(board.getTile(x, y).render) {
 					System.out.println("-");
 					BufferedImage currentTile = loader.getTileImage(board.getTile(x, y));
