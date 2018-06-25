@@ -11,7 +11,7 @@ public class MasterRenderer extends JLabel {
 	
 	int sizeX, sizeY;
 	BoardRenderer boardRenderer;
-	int view = View.MENU;
+	public int view = 1;
 	
 	public MasterRenderer(int sizeX, int sizeY, Board b) {
 		ImageLoader loader = new ImageLoader();
@@ -22,7 +22,6 @@ public class MasterRenderer extends JLabel {
 	
 	@Override
 	public void paint(Graphics g) {
-
 		if(view == View.MENU) {
 			boardRenderer.renderMenu(g);
 		}else if(view == View.BOARD) {

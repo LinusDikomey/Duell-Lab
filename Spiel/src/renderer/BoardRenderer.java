@@ -2,7 +2,6 @@ package renderer;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 import world.Board;
@@ -45,11 +44,13 @@ public class BoardRenderer  {
 		for(int y = 0; y < board.SIZE_Y; y++) {
 			for(int x = 0; x < board.SIZE_X; x++) {
 				if(board.getTile(x, y).render) {
+					System.out.println("-");
 					BufferedImage currentTile = loader.getTileImage(board.getTile(x, y));
 					g.drawImage(currentTile, x * tileSize, y * tileSize, tileSize, tileSize, null);
+				}else {
+					g.setColor(Color.WHITE);
+					g.fillRect(x * tileSize, y * tileSize, tileSize, tileSize);
 				}
-				
-				g.fillRect(x * tileSize, y * tileSize, tileSize, tileSize);
 			}
 		}
 	}
