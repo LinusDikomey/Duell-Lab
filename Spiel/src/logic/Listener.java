@@ -1,11 +1,11 @@
-package renderer;
+package logic;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import logic.MainLogic;
+import renderer.View;
 
 public class Listener implements MouseListener, KeyListener {
 

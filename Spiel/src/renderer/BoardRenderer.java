@@ -1,6 +1,5 @@
 package renderer;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -43,13 +42,12 @@ public class BoardRenderer  {
 	public void renderGame(Graphics g) {
 		g.drawImage(loader.getImage("ground"), 0, 0, sizeX, sizeY, null);
 		if(useXBoard)
-			tileSize = sizeX / board.SIZE_X;
-		else tileSize = sizeY / board.SIZE_Y;
+			tileSize = sizeX / Board.SIZE_X;
+		else tileSize = sizeY / Board.SIZE_Y;
 		
-		for(int y = 0; y < board.SIZE_Y; y++) {
-			for(int x = 0; x < board.SIZE_X; x++) { 
+		for(int y = 0; y < Board.SIZE_Y; y++) {
+			for(int x = 0; x < Board.SIZE_X; x++) { 
 				if(board.getTile(x, y).render) {
-					System.out.println("-");
 					BufferedImage currentTile = loader.getTileImage(board.getTile(x, y));
 					g.drawImage(currentTile, x * tileSize, y * tileSize, tileSize, tileSize, null);
 				}

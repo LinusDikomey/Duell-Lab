@@ -4,7 +4,6 @@ import java.awt.Rectangle;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import renderer.Listener;
 import renderer.MasterRenderer;
 import renderer.View;
 

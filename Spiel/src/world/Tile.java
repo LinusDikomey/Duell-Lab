@@ -7,15 +7,16 @@ public abstract class Tile {
 	protected boolean destroyable;
 	public boolean render;
 	public String imageName;
+	public int id;
 	
 	
-	
-	public Tile(int health, boolean walkable, boolean destroyable, boolean render, String imageName) {
+	public Tile(int health, boolean walkable, boolean destroyable, boolean render, String imageName, int id) {
 		this.health = health;
 		this.walkable = walkable;
 		this.destroyable = destroyable;
 		this.render = render;
 		this.imageName = imageName;
+		this.id = id;
 	}
 	
 	public void onAttack() {}

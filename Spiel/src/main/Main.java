@@ -1,7 +1,7 @@
 package main;
 
+import logic.Listener;
 import logic.MainLogic;
-import renderer.Listener;
 import renderer.Window;
 import world.Board;
 
@@ -15,6 +15,7 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		board = new Board();
+		board.loadLevel("test");
 		Window w = new Window(800, 450, true, board);
 		w.setVisible(true);
 		

@@ -5,7 +5,7 @@ import world.Tile;
 public class Chest extends Tile { 
 
 	public Chest() {
-		super(1, false, true, true, "placeholder3");
+		super(1, false, true, true, "wood_chest", 2);
 	}
 	
 	@Override
@@ -13,5 +13,3 @@ public class Chest extends Tile {
 		//Loot auswahl zum Spawn
 	}
 }
-
-
