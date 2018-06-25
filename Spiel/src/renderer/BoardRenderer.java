@@ -15,7 +15,8 @@ public class BoardRenderer  {
 	boolean useXButton;
 	Board board;
 	private ImageLoader loader;
-	int startButtonSize;
+	public int startButtonSize;
+	public Rectangle startButtonRec;
 	
 	public BoardRenderer(int sizeX, int sizeY, Board b, ImageLoader loader) {
 		this.sizeX = sizeX;
@@ -30,11 +31,12 @@ public class BoardRenderer  {
 		if(startButtonSize * startButton.getHeight() > sizeY / 2) {
 			startButtonSize = sizeY / 2 / startButton.getHeight();
 		}
+		startButtonRec = new Rectangle(sizeX / 4, sizeY / 4, startButton.getWidth() * startButtonSize, startButton.getHeight() * startButtonSize);
 	}
 	
 	public void renderMenu(Graphics g) {
 		BufferedImage startButton = loader.getImage("startButton");
-		g.drawImage(startButton, sizeX / 4, sizeY / 4, startButton.getWidth() * startButtonSize, startButton.getHeight() * startButtonSize, null);
+		g.drawImage(startButton, startButtonRec.x, startButtonRec.y, startButtonRec.width, startButtonRec.height, null);
 	}
 	
 	public void renderGame(Graphics g) {
@@ -45,11 +47,13 @@ public class BoardRenderer  {
 		for(int y = 0; y < board.SIZE_Y; y++) {
 			for(int x = 0; x < board.SIZE_X; x++) {
 				if(board.getTile(x, y).render) {
+					System.out.println("-");
 					BufferedImage currentTile = loader.getTileImage(board.getTile(x, y));
 					g.drawImage(currentTile, x * tileSize, y * tileSize, tileSize, tileSize, null);
+				}else {
+					g.setColor(Color.WHITE);
+					g.fillRect(x * tileSize, y * tileSize, tileSize, tileSize);
 				}
-				
-				g.fillRect(x * tileSize, y * tileSize, tileSize, tileSize);
 			}
 		}
 	}
