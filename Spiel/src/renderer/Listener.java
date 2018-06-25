@@ -45,7 +45,7 @@ public class Listener implements MouseListener, KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+		if(e.getKeyCode() == KeyEvent.VK_ESCAPE && logic.getView() == View.BOARD) {
 			logic.stopGame();
 		}
 	}

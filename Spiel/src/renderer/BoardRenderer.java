@@ -1,6 +1,5 @@
 package renderer;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -25,6 +24,7 @@ public class BoardRenderer  {
 		
 		useXBoard = !(sizeX * 9 / 16 > sizeY);
 		board = b;
+		loader.loadImage("tiles/ground", "ground");
 		loader.loadImage("gui/startButton", "startButton");
 		BufferedImage startButton = loader.getImage("startButton");
 		startButtonSize = sizeX / 2 / startButton.getWidth();
@@ -40,6 +40,7 @@ public class BoardRenderer  {
 	}
 	
 	public void renderGame(Graphics g) {
+		g.drawImage(loader.getImage("ground"), 0, 0, sizeX, sizeY, null);
 		if(useXBoard)
 			tileSize = sizeX / board.SIZE_X;
 		else tileSize = sizeY / board.SIZE_Y;
@@ -50,9 +51,6 @@ public class BoardRenderer  {
 					System.out.println("-");
 					BufferedImage currentTile = loader.getTileImage(board.getTile(x, y));
 					g.drawImage(currentTile, x * tileSize, y * tileSize, tileSize, tileSize, null);
-				}else {
-					g.setColor(Color.WHITE);
-					g.fillRect(x * tileSize, y * tileSize, tileSize, tileSize);
 				}
 			}
 		}
