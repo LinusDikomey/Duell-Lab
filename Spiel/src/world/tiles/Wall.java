@@ -5,10 +5,6 @@ import world.Tile;
 public class Wall extends Tile {
 
 	public Wall() {
-		render = true;
-		imageLocation = "images/placeholder1";
-		health = 10;
-		walkable = false;
-		destroyable = true;
+		super(3, false, true, true, "placeholder1");
 	}
 }

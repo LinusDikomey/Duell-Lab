@@ -1,5 +1,6 @@
 package main;
 
+import logic.MainLogic;
 import renderer.Window;
 import world.Board;
 
@@ -15,6 +16,8 @@ public class Main {
 		board = new Board();
 		Window w = new Window(800, 450, true, board);
 		w.setVisible(true);
-		System.out.println(w.getContentPane().getSize());
+		
+		MainLogic logic = new MainLogic(w.renderer);
+		logic.startGameLoop();
 	}
 }

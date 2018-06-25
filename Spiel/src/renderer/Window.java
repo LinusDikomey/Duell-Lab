@@ -10,7 +10,7 @@ import world.Board;
 public class Window extends JFrame {
 	private static final long serialVersionUID = 1L;
 
-	private MasterRenderer r;
+	public MasterRenderer renderer;
 	
 	public Window(int sizeX, int sizeY, boolean fullscreen, Board b) {
 		super("Spiel");
@@ -32,7 +32,7 @@ public class Window extends JFrame {
 		setSize(sizeX, sizeY);
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		r = new MasterRenderer(displayX, displayY, b);
-		this.add(r);
+		renderer = new MasterRenderer(displayX, displayY, b);
+		this.add(renderer);
 	}
 }

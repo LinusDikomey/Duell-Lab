@@ -2,14 +2,20 @@ package world;
 
 public abstract class Tile {
 
-	protected int health = 1;
-	protected boolean walkable = false;
-	protected boolean destroyable = false;
-	public boolean render = false;
-	public String imageLocation = "";
+	protected int health;
+	protected boolean walkable;
+	protected boolean destroyable;
+	public boolean render;
+	public String imageName;
 	
-	public Tile() {
-		this.imageLocation = imageLocation;
+	
+	
+	public Tile(int health, boolean walkable, boolean destroyable, boolean render, String imageName) {
+		this.health = health;
+		this.walkable = walkable;
+		this.destroyable = destroyable;
+		this.render = render;
+		this.imageName = imageName;
 	}
 	
 	public void onAttack() {}

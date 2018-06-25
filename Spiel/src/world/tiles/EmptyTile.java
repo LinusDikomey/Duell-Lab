@@ -5,8 +5,6 @@ import world.Tile;
 public class EmptyTile extends Tile {
 	
 	public EmptyTile() {
-		destroyable = false;
-		walkable = true;
+		super(0, true, false, false, null);
 	}
-
 }
