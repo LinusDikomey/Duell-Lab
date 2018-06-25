@@ -1,0 +1,7 @@
+<Item>
+	<Cooldown>20</Cooldown>
+	<Nahkampf mode = "radius">
+		<Range>1</Range>
+		<Damage>4</Damage>
+	</Nahkampf>
+</Item>
