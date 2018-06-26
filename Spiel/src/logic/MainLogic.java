@@ -10,7 +10,6 @@ import renderer.Loader;
 import renderer.MasterRenderer;
 import renderer.View;
 import world.Board;
-import world.Tickable;
 
 public class MainLogic {
 
@@ -68,9 +67,20 @@ public class MainLogic {
 		for(Entity entity : entityManager.entities) {
 
 			entity.tick();
-			for(int y = 0; y < board.SIZE_Y; y++) {
-				
+			entity.checkCollision(new Rectangle(0, -100, Board.SIZE_X * 100, 100));
+			entity.checkCollision(new Rectangle(-100, 0, 100, Board.SIZE_Y * 100));
+			entity.checkCollision(new Rectangle(Board.SIZE_X * 100, 0, 200, Board.SIZE_Y * 100));
+			entity.checkCollision(new Rectangle(0, Board.SIZE_Y * 100, Board.SIZE_X * 100, 200));
+			for(int y = 0; y < Board.SIZE_Y; y++) {
+				for(int x = 0; x < Board.SIZE_X; x++) {
+					if(!board.tiles[x][y].walkable) {
+						Rectangle box = board.tiles[x][y].collisionBox;
+						Rectangle rect = new Rectangle(x * 100 + box.x, y * 100 + box.y, box.width, box.height);
+						entity.checkCollision(rect);
+					}
+				}
 			}
+			entity.move();
 		}
 	}
 	

@@ -23,7 +23,7 @@ public class Main {
 		w.add(logic.renderer);
 		w.setVisible(true);
 		
-		logic.board.loadLevel("test");
+		logic.board.loadLevel("circle");
 		logic.startGameLoop();
 	}
 }

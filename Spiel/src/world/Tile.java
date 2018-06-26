@@ -1,14 +1,16 @@
 package world;
 
+import java.awt.Rectangle;
+
 public abstract class Tile {
 
 	protected int health;
-	protected boolean walkable;
+	public boolean walkable;
 	protected boolean destroyable;
 	public boolean render;
 	public String imageName;
 	public int id;
-	
+	public Rectangle collisionBox = new Rectangle(0, 0, 100, 100);
 	
 	public Tile(int health, boolean walkable, boolean destroyable, boolean render, String imageName, int id) {
 		this.health = health;

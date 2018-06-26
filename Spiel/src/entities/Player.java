@@ -1,5 +1,6 @@
 package entities;
 
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 
@@ -15,6 +16,9 @@ public class Player extends Entity implements Tickable {
 	
 	public Player(int x, int y, Loader loader, int player) {
 		super(x, y, loader);
+		collidable = true;
+		collisionBox = new Rectangle(20, 20, 60, 60);
+		
 		this.player = player;
 		if(player == 0)
 			texturePath = "gui/figur1";
@@ -81,7 +85,7 @@ public class Player extends Entity implements Tickable {
 				}
 			}
 		}
-		x += xSpeed;
-		y += ySpeed;
+		nextX += xSpeed;
+		nextY += ySpeed;
 	}
 }

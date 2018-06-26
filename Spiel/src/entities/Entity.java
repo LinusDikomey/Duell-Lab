@@ -13,11 +13,11 @@ import world.Tickable;
 public abstract class Entity implements Tickable {
 
 	public int x, y;
-	public int lastX, lastY;
+	public int nextX, nextY;
 	private BufferedImage texture;
 	protected Loader loader;
-	public Rectangle collisionBox = new Rectangle(0, 0, 100, 100);
-	boolean collidable = true;
+	public Rectangle collisionBox = new Rectangle(20, 20, 80, 80);
+	boolean collidable = false;
 	
 	public Entity(int x, int y, Loader loader) {
 		this.x = x;
@@ -25,10 +25,18 @@ public abstract class Entity implements Tickable {
 		this.loader = loader;
 	}
 	
+	public boolean moveX = false, moveY = false;
+	
 	public void checkCollision(Rectangle r) {
 		if(collidable) {
-			Rectangle collisionRect = new Rectangle(x + collisionBox.x, y + collisionBox.y, collisionBox.width, collisionBox.height);
-			if(collisionRect.intersects(r));
+			Rectangle collisionRectX = new Rectangle(nextX + collisionBox.x, y + collisionBox.y, collisionBox.width, collisionBox.height);
+			if(collisionRectX.intersects(r)) {
+				moveX = false;
+			}
+			Rectangle collisionRectY = new Rectangle(x + collisionBox.x, nextY + collisionBox.y, collisionBox.width, collisionBox.height);
+			if(collisionRectY.intersects(r)) {
+				moveY = false;
+			}
 		}
 	}
 	
@@ -42,18 +50,23 @@ public abstract class Entity implements Tickable {
 	
 	@Override
 	public void tick() {
-		saveCoords();
-	}
-	
-	/**
-	 * Sollte am Ende jedes Ticks aufgerufen werden
-	 */
-	private void saveCoords() {
-		lastX = x;
-		lastY = y;
+		
 	}
 	
 	public BufferedImage getTexture() {
 		return texture;
+	}
+
+	public void move() {
+		if(moveX) {
+			x = nextX;
+		}
+		if(moveY) {
+			y = nextY;
+		}
+		moveX = true;
+		moveY = true;
+		nextX = x;
+		nextY = y;
 	}
 }
