@@ -66,9 +66,10 @@ public class MainLogic {
 	
 	private void gameTick() {
 		for(Entity entity : entityManager.entities) {
-			if(entity instanceof Tickable) {
-				Tickable tEntity = (Tickable) entity;
-				tEntity.tick();
+
+			entity.tick();
+			for(int y = 0; y < board.SIZE_Y; y++) {
+				
 			}
 		}
 	}
