@@ -4,5 +4,5 @@
 		<Range>1</Range>
 		<Damage>3</Damage>
 	</Nahkampf>
-	<Texture>dolch.png</Texture>
+	<Texture>dolch</Texture>
 </Item>

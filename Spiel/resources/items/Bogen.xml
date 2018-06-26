@@ -7,9 +7,5 @@
 		<ReloadTime>20</ReloadTime>
 		<Speed>1.5</Speed>
 	</Fernkampf>
-<<<<<<< HEAD
-	<Texture>bogen.png</Texture>
-=======
 	<Texture>bogen</Texture>
->>>>>>> branch 'master' of https://github.com/LinusDikomey/Duell-Lab
 </Item>

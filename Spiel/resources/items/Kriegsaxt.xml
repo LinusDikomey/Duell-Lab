@@ -4,5 +4,5 @@
 		<Range>1</Range>
 		<Damage>4</Damage>
 	</Nahkampf>
-	<Texture>axt.png</Texture>
+	<Texture>axt</Texture>
 </Item>

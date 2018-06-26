@@ -5,5 +5,5 @@
 		<Offset>3</Offset>
 		<Damage>10</Damage>
 	</Nahkampf>
-	<Texture>hammer.png</Texture>
+	<Texture>hammer</Texture>
 </Item>
