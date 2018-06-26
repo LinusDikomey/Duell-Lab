@@ -10,7 +10,7 @@ import world.Board;
 
 public class MainLogic {
 
-	Board board;
+	public Board board;
 	EntityManager entityManager;
 	public MasterRenderer renderer;
 	private int view = View.MENU;
@@ -22,8 +22,6 @@ public class MainLogic {
 		entityManager = new EntityManager();
 		renderer = new MasterRenderer(sizeX, sizeY, board, entityManager);
 		listener = new Listener(this);
-		board.loadLevel("test");
-		
 		
 		startButton = renderer.boardRenderer.startButtonRec;
 	}

@@ -20,6 +20,8 @@ public class Main {
 		w.addKeyListener(listener);
 		w.add(logic.renderer);
 		w.setVisible(true);
+		
+		logic.board.loadLevel("test");
 		logic.startGameLoop();
 	}
 }

@@ -2,7 +2,6 @@ package renderer;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -34,13 +33,15 @@ public class ImageLoader {
 	
 	private HashMap<String, BufferedImage> images = new HashMap<String, BufferedImage>();
 	
-	public BufferedImage getImage(String name) {
-		if(images.containsKey(name)) {
-			return images.get(name);
-		}else {
-			System.err.println("Fehler, es wurde ein nicht vorhandenes Bild abgerufen!");
-			return null;
+	public BufferedImage getImage(String path) {
+		if(!images.containsKey(path)) {
+			try {
+				images.put(path, ImageIO.read(new File("resources/textures/" + path + ".png")));
+			} catch (IOException e) {
+				e.printStackTrace();
+			} 
 		}
+		return images.get(path);
 	}
 	
 	/**
@@ -49,13 +50,13 @@ public class ImageLoader {
 	 * @param name Name of the image in the Buffer used to identify it.
 	 */
 	
-	public void loadImage(String path, String name) {
+	/*public void loadImage(String path, String name) {
 		try {
 			BufferedImage image = ImageIO.read(new FileInputStream("resources/textures/" + path + ".png"));
 			images.put(name, image);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 	
 }

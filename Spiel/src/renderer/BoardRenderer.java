@@ -25,9 +25,7 @@ public class BoardRenderer  {
 		
 		useXBoard = !(sizeX * 9 / 16 > sizeY);
 		board = b;
-		loader.loadImage("tiles/ground", "ground");
-		loader.loadImage("gui/startButton", "startButton");
-		BufferedImage startButton = loader.getImage("startButton");
+		BufferedImage startButton = loader.getImage("gui/startButton");
 		startButtonSize = sizeX / 2f / startButton.getWidth();
 		if(startButtonSize * startButton.getHeight() > sizeY / 2) {
 			startButtonSize = sizeY / 2f / startButton.getHeight();
@@ -41,7 +39,7 @@ public class BoardRenderer  {
 	}
 	
 	public void renderGame(Graphics g) {
-		g.drawImage(loader.getImage("ground"), 0, 0, sizeX, sizeY, null);
+		g.drawImage(loader.getImage("tiles/ground"), 0, 0, sizeX, sizeY, null);
 		
 		for(int y = 0; y < Board.SIZE_Y; y++) {
 			for(int x = 0; x < Board.SIZE_X; x++) { 
