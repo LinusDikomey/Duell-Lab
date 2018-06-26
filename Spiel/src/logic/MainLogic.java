@@ -4,23 +4,28 @@ import java.awt.Rectangle;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import entities.Entity;
+import entities.Item;
+import renderer.Loader;
 import renderer.MasterRenderer;
 import renderer.View;
 import world.Board;
+import world.Tickable;
 
 public class MainLogic {
 
 	public Board board;
-	EntityManager entityManager;
+	public EntityManager entityManager;
 	public MasterRenderer renderer;
 	private int view = View.MENU;
 	Listener listener;
 	public Rectangle startButton;
 	
 	public MainLogic(int sizeX, int sizeY) {
+		Loader loader = new Loader();
 		board = new Board();
-		entityManager = new EntityManager();
-		renderer = new MasterRenderer(sizeX, sizeY, board, entityManager);
+		entityManager = new EntityManager(loader);
+		renderer = new MasterRenderer(sizeX, sizeY, board, entityManager, loader);
 		listener = new Listener(this);
 		
 		startButton = renderer.boardRenderer.startButtonRec;
@@ -40,10 +45,12 @@ public class MainLogic {
 				renderer.currentView = view;
 				renderer.repaint();
 			}
-		}, 0, 50);
+		}, 0, 25);
 	}
 	
 	public void startGame() {
+		entityManager.entities.add(new Item(0, 0, "Bogen", entityManager.loader));
+		entityManager.addPlayers();
 		if(view == View.MENU) {
 			view = View.BOARD;
 		}
@@ -51,13 +58,19 @@ public class MainLogic {
 	
 	public void stopGame() {
 		if(view == View.BOARD) {
+			entityManager.entities.clear();
 			board.clearBoard();
 			view = View.MENU;
 		}
 	}
 	
 	private void gameTick() {
-		
+		for(Entity entity : entityManager.entities) {
+			if(entity instanceof Tickable) {
+				Tickable tEntity = (Tickable) entity;
+				tEntity.tick();
+			}
+		}
 	}
 	
 	private void menuTick() {

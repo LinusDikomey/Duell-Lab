@@ -13,11 +13,11 @@ public class BoardRenderer  {
 	boolean useXBoard;
 	boolean useXButton;
 	Board board;
-	private ImageLoader loader;
+	private Loader loader;
 	public double startButtonSize;
 	public Rectangle startButtonRec;
 	
-	public BoardRenderer(int sizeX, int sizeY, int tilesize, Board b, ImageLoader loader) {
+	public BoardRenderer(int sizeX, int sizeY, int tilesize, Board b, Loader loader) {
 		this.sizeX = sizeX;
 		this.sizeY = sizeY;
 		this.loader = loader;
@@ -34,7 +34,7 @@ public class BoardRenderer  {
 	}
 	
 	public void renderMenu(Graphics g) {
-		BufferedImage startButton = loader.getImage("startButton");
+		BufferedImage startButton = loader.getImage("gui/startButton");
 		g.drawImage(startButton, startButtonRec.x, startButtonRec.y, startButtonRec.width, startButtonRec.height, null);
 	}
 	

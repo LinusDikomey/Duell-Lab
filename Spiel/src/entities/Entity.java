@@ -1,18 +1,34 @@
 package entities;
 
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
-import renderer.ImageLoader;
+import javax.imageio.ImageIO;
+
+import renderer.Loader;
 
 public abstract class Entity {
 
-	int x, y;
-	BufferedImage texture;
+	public int x, y;
+	private BufferedImage texture;
+	protected Loader loader;
 	
-	public Entity(int x, int y, String texture, ImageLoader loader) {
+	public Entity(int x, int y, Loader loader) {
 		this.x = x;
 		this.y = y;
-		this.texture = loader.getImage("items/" + texture);
+		this.loader = loader;
 	}
 	
+	protected void loadTexture(String name) {
+		try {
+			texture = ImageIO.read(new File("resources/textures/" + name + ".png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public BufferedImage getTexture() {
+		return texture;
+	}
 }

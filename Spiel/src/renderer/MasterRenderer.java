@@ -15,8 +15,7 @@ public class MasterRenderer extends JLabel {
 	public EntityRenderer entityRenderer;
 	public int currentView = 0;
 	
-	public MasterRenderer(int sizeX, int sizeY, Board b, EntityManager entityManager) {
-		ImageLoader loader = new ImageLoader();
+	public MasterRenderer(int sizeX, int sizeY, Board b, EntityManager entityManager, Loader loader) {
 		this.sizeX = sizeX;
 		this.sizeY = sizeY;
 		
@@ -27,7 +26,7 @@ public class MasterRenderer extends JLabel {
 		else tilesize = sizeY / Board.SIZE_Y;
 		
 		boardRenderer = new BoardRenderer(sizeX, sizeY, tilesize, b, loader);
-		entityRenderer = new EntityRenderer(tilesize, entityManager, loader);
+		entityRenderer = new EntityRenderer(tilesize, entityManager);
 		
 	}
 	
