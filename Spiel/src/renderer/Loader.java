@@ -1,5 +1,6 @@
 package renderer;
 
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -62,6 +63,34 @@ public class Loader {
 			} 
 		}
 		return images.get(path);
+	}
+	
+	private HashMap<String, BufferedImage[]> rotatedImages = new HashMap<String, BufferedImage[]>();
+	
+	public BufferedImage[] getRotatedImage(String path) {
+		if(!rotatedImages.containsKey(path)) {
+			try {
+				BufferedImage img = ImageIO.read(new File("resources/textures/" + path + ".png"));
+				BufferedImage[] rotated = new BufferedImage[8];
+				for(int i = 0; i < 8; i++) {
+					rotated[i] = rotateImage(img, i * 45);
+				}
+				rotatedImages.put(path, rotated);
+			} catch (IOException e) {
+				e.printStackTrace();
+			} 
+		}
+		return rotatedImages.get(path);
+	}
+	
+	public static BufferedImage rotateImage(BufferedImage img, int rotation) {
+	int w = img.getWidth();
+	int h = img.getHeight();
+	BufferedImage newImage = new BufferedImage(w, h, img.getType());
+	Graphics2D g2 = newImage.createGraphics();
+	g2.rotate(Math.toRadians(rotation), w/2, h/2);
+	g2.drawImage(img,null,0,0);
+	return newImage;
 	}
 	
 	/**

@@ -12,10 +12,12 @@ public abstract class Entity {
 
 	public int x, y;
 	private BufferedImage texture;
+	protected Loader loader;
 	
 	public Entity(int x, int y, Loader loader) {
 		this.x = x;
 		this.y = y;
+		this.loader = loader;
 	}
 	
 	protected void loadTexture(String name) {
