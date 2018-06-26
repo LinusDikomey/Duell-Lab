@@ -1,9 +1,9 @@
 package main;
 
-import logic.IsKeyPressed;
 import logic.Listener;
 import logic.MainLogic;
 import renderer.Window;
+import toolbox.IsKeyPressed;
 
 public class Main {
 
@@ -12,6 +12,7 @@ public class Main {
 	 * Startet das Spiel
 	 * @param args
 	 */
+	
 	public static void main(String[] args) {
 		Window w = new Window(800, 450, true);
 		

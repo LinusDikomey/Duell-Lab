@@ -7,7 +7,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import renderer.Loader;
+import toolbox.Loader;
 import world.Tickable;
 
 public abstract class Entity implements Tickable {

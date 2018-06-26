@@ -6,9 +6,9 @@ import java.util.TimerTask;
 
 import entities.Entity;
 import entities.Item;
-import renderer.Loader;
 import renderer.MasterRenderer;
 import renderer.View;
+import toolbox.Loader;
 import world.Board;
 
 public class MainLogic {
@@ -73,7 +73,7 @@ public class MainLogic {
 			entity.checkCollision(new Rectangle(0, Board.SIZE_Y * 100, Board.SIZE_X * 100, 200));
 			for(int y = 0; y < Board.SIZE_Y; y++) {
 				for(int x = 0; x < Board.SIZE_X; x++) {
-					if(!board.tiles[x][y].walkable) {
+					if(board.tiles[x][y].collidable) {
 						Rectangle box = board.tiles[x][y].collisionBox;
 						Rectangle rect = new Rectangle(x * 100 + box.x, y * 100 + box.y, box.width, box.height);
 						entity.checkCollision(rect);

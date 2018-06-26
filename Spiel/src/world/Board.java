@@ -2,9 +2,7 @@ package world;
 
 import java.io.File;
 
-import logic.SaveLoadManager;
-import world.tiles.EmptyTile;
-
+import toolbox.SaveLoadManager;
 public class Board {
 
 	public final static int SIZE_X = 32;
@@ -13,11 +11,7 @@ public class Board {
 	public Tile[][] tiles = new Tile[SIZE_X][SIZE_Y];
 	
 	public Board() {
-		for(int y = 0; y < SIZE_Y; y++) {
-			for(int x = 0; x < SIZE_X; x++) {
-				tiles[x][y] = new EmptyTile();
-			}
-		}
+		clearBoard();
 	}
 	
 	public Tile getTile(int x, int y) {
@@ -31,7 +25,7 @@ public class Board {
 	public void clearBoard() {
 		for(int y = 0; y < SIZE_Y; y++) {
 			for(int x = 0; x < SIZE_X; x++) {
-				tiles[x][y] = new EmptyTile();
+				tiles[x][y] = new Tile("empty");
 			}
 		}
 	}

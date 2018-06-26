@@ -5,7 +5,7 @@ import java.util.List;
 
 import entities.Entity;
 import entities.Player;
-import renderer.Loader;
+import toolbox.Loader;
 
 public class EntityManager {
 

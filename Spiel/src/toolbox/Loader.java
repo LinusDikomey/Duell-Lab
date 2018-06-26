@@ -1,4 +1,4 @@
-package renderer;
+package toolbox;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -41,7 +41,7 @@ public class Loader {
 			if(tile.render) {
 				BufferedImage image = null;
 				try {
-					image = ImageIO.read(new File("resources/textures/tiles/" + tile.imageName + ".png"));
+					image = ImageIO.read(new File("resources/textures/tiles/" + tile.texture + ".png"));
 				} catch (IOException e) {e.printStackTrace();}
 				tiles.put(tile, image);
 				return image;

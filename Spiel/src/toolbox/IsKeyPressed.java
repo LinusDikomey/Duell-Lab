@@ -1,4 +1,4 @@
-package logic;
+package toolbox;
 
 import java.awt.KeyEventDispatcher;
 import java.awt.KeyboardFocusManager;

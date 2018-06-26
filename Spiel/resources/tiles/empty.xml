@@ -1,0 +1,13 @@
+<Tile>
+	<Collidable>false</Collidable>
+	<CollisionBox>
+		<X1>0</X1>
+		<Y1>0</Y1>
+		<width>100</width>
+		<height>100</height>
+	</CollisionBox>
+	<Destroyable>false</Destroyable>
+	<Health>1</Health>
+	<Render>false</Render>
+	<Texture>null</Texture>
+</Tile>

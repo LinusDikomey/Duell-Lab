@@ -1,4 +1,4 @@
-package logic;
+package toolbox;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -9,9 +9,6 @@ import java.io.PrintStream;
 
 import world.Board;
 import world.Tile;
-import world.tiles.Chest;
-import world.tiles.EmptyTile;
-import world.tiles.Wall;
 
 public class SaveLoadManager {
 
@@ -35,23 +32,7 @@ public class SaveLoadManager {
 			}
 			String[] elems = line.split(",");
 			for(int x = 0; x < Board.SIZE_X; x++) {
-				switch(Integer.parseInt(elems[x])) {
-				case 0:
-					tiles[x][y] = new EmptyTile();
-					break;
-				case 1:
-					tiles[x][y] = new Wall();
-					break;
-				case 2:
-					tiles[x][y] = new Chest();
-					break;
-					
-					
-					default:
-						System.err.println("Invalid tile ID found: " + elems[x]);
-						tiles[x][y] = new EmptyTile();
-						break;
-				}
+				tiles[x][y] = new Tile(elems[x]);
 			}
 		}
 		return tiles;
@@ -66,7 +47,7 @@ public class SaveLoadManager {
 		}
 		for(int y = 0; y < Board.SIZE_Y; y++) {
 			for(int x = 0; x < Board.SIZE_X; x++) {
-				stream.print(tiles[x][y].id);
+				stream.print(tiles[x][y].name);
 				if(x < Board.SIZE_X - 1) {
 					stream.print(",");
 				}

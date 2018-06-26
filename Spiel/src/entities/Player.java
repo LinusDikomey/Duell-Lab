@@ -4,8 +4,8 @@ import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 
-import logic.IsKeyPressed;
-import renderer.Loader;
+import toolbox.IsKeyPressed;
+import toolbox.Loader;
 import world.Tickable;
 
 public class Player extends Entity implements Tickable {

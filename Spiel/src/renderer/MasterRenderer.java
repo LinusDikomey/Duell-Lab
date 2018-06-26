@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import javax.swing.JLabel;
 
 import logic.EntityManager;
+import toolbox.Loader;
 import world.Board;
 
 public class MasterRenderer extends JLabel {

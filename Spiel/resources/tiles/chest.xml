@@ -1,0 +1,16 @@
+<Tile>
+	<Collidable>true</Collidable>
+	<CollisionBox>
+		<X1>0</X1>
+		<Y1>20</Y1>
+		<width>100</width>
+		<height>60</height>
+	</CollisionBox>
+	<Destroyable>true</Destroyable>
+	<Health>1</Health>
+	<Render>true</Render>
+	<Texture>wood_chest</Texture>
+	<Attached>
+		<Chest>loot1</Chest>
+	</Attached>
+</Tile>
