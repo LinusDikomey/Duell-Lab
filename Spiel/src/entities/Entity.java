@@ -20,7 +20,7 @@ public abstract class Entity {
 	
 	protected void loadTexture(String name) {
 		try {
-			texture = ImageIO.read(new File("resources/textures/items/" + name + ".png"));
+			texture = ImageIO.read(new File("resources/textures/" + name + ".png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

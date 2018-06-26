@@ -7,9 +7,8 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import renderer.Loader;
-import world.Tickable;
 
-public class Item extends Entity implements Tickable {
+public class Item extends Entity {
 
 	public Item(int x, int y, String itemName, Loader loader) {
 		super(x, y, loader);
@@ -17,15 +16,6 @@ public class Item extends Entity implements Tickable {
 		NodeList nl = d.getElementsByTagName("Item");
 		Element item = loader.getElement(nl);
 		String textureName = item.getElementsByTagName("Texture").item(0).getTextContent();
-		loadTexture(textureName);
+		loadTexture("items/" + textureName);
 	}
-
-	@Override
-	public void tick() {
-		x+=5;
-		y+=5;
-		
-	}
-	
-	
 }

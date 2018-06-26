@@ -49,7 +49,8 @@ public class MainLogic {
 	}
 	
 	public void startGame() {
-		entityManager.entities.add(new Item(0, 0, "Bogen", new Loader())); //LOADER ANDERS!!!
+		entityManager.entities.add(new Item(0, 0, "Bogen", entityManager.loader));
+		entityManager.addPlayers();
 		if(view == View.MENU) {
 			view = View.BOARD;
 		}
@@ -57,6 +58,7 @@ public class MainLogic {
 	
 	public void stopGame() {
 		if(view == View.BOARD) {
+			entityManager.entities.clear();
 			board.clearBoard();
 			view = View.MENU;
 		}
