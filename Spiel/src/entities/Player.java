@@ -15,8 +15,8 @@ public class Player extends Entity implements Tickable {
 	private String texturePath;
 	
 	public Player(int x, int y, Loader loader, int player) {
-		super(x, y, loader);
-		collidable = true;
+		super(x, y, true, loader);
+		
 		collisionBox = new Rectangle(20, 20, 60, 60);
 		
 		this.player = player;

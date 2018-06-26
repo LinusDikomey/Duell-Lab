@@ -19,9 +19,10 @@ public abstract class Entity implements Tickable {
 	public Rectangle collisionBox = new Rectangle(20, 20, 80, 80);
 	boolean collidable = false;
 	
-	public Entity(int x, int y, Loader loader) {
+	public Entity(int x, int y, boolean collidable, Loader loader) {
 		this.x = x;
 		this.y = y;
+		this.collidable = collidable;
 		this.loader = loader;
 	}
 	
