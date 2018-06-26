@@ -7,4 +7,5 @@
 		<ReloadTime>60</ReloadTime>
 		<Speed>5.5</Speed>
 	</Fernkampf>
+	<Texture>sniper.png</Texture>
 </Item>

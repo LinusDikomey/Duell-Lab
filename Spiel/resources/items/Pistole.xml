@@ -7,4 +7,5 @@
 		<ReloadTime>40</ReloadTime>
 		<Speed>2.8</Speed>
 	</Fernkampf>
+	<Texture>pistole.png</Texture>
 </Item>

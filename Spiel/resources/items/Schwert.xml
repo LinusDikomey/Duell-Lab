@@ -4,4 +4,5 @@
 		<Range>2</Range>
 		<Damage>4</Damage>
 	</Nahkampf>
+	<Texture>schwert.png</Texture>
 </Item>

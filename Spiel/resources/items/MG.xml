@@ -7,4 +7,5 @@
 		<ReloadTime>60</ReloadTime>
 		<Speed>2.8</Speed>
 	</Fernkampf>
+	<Texture>mg.png</Texture>
 </Item>
