@@ -48,6 +48,20 @@ public class Listener implements MouseListener, KeyListener {
 		if(e.getKeyCode() == KeyEvent.VK_ESCAPE && logic.getView() == View.BOARD) {
 			logic.stopGame();
 		}
+		
+		/*if(e.getKeyCode() == KeyEvent.VK_LEFT) {
+			logic.entityManager.player1.movementX = -20;
+		}else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
+			logic.entityManager.player1.movementX = 20;
+		}
+		if(e.getKeyCode() == KeyEvent.VK_DOWN) {
+			logic.entityManager.player1.movementY = 20;
+		}else if(e.getKeyCode() == KeyEvent.VK_UP) {
+			logic.entityManager.player1.movementY = -20;
+		}else {
+			logic.entityManager.player1.movementY = 0;
+		}*/
+		
 	}
 
 	@Override

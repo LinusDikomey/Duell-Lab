@@ -15,7 +15,7 @@ import world.Tickable;
 public class MainLogic {
 
 	public Board board;
-	EntityManager entityManager;
+	public EntityManager entityManager;
 	public MasterRenderer renderer;
 	private int view = View.MENU;
 	Listener listener;
