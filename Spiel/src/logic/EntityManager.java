@@ -4,9 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import entities.Entity;
+import renderer.Loader;
 
 public class EntityManager {
 
-	public List<Entity> entities = new ArrayList<Entity>();
+	Loader loader;
 	
+	public EntityManager(Loader loader) {
+		this.loader = loader;
+	}
+	
+	public List<Entity> entities = new ArrayList<Entity>();
 }
