@@ -28,6 +28,14 @@ public class Board {
 		tiles[x][y] = t;
 	}
 
+	public void clearBoard() {
+		for(int y = 0; y < SIZE_Y; y++) {
+			for(int x = 0; x < SIZE_X; x++) {
+				tiles[x][y] = new EmptyTile();
+			}
+		}
+	}
+	
 	public void loadLevel(String name) {
 		tiles = SaveLoadManager.load(new File("resources/levels/" + name + ".lvl"));
 	}

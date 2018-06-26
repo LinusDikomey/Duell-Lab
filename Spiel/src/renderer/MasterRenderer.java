@@ -4,6 +4,7 @@ import java.awt.Graphics;
 
 import javax.swing.JLabel;
 
+import logic.EntityManager;
 import world.Board;
 
 public class MasterRenderer extends JLabel {
@@ -11,13 +12,22 @@ public class MasterRenderer extends JLabel {
 	
 	public int sizeX, sizeY;
 	public BoardRenderer boardRenderer;
+	public EntityRenderer entityRenderer;
 	public int currentView = 0;
 	
-	public MasterRenderer(int sizeX, int sizeY, Board b) {
+	public MasterRenderer(int sizeX, int sizeY, Board b, EntityManager entityManager) {
 		ImageLoader loader = new ImageLoader();
 		this.sizeX = sizeX;
 		this.sizeY = sizeY;
-		boardRenderer = new BoardRenderer(sizeX, sizeY, b, loader);
+		
+		int tilesize = 0;
+		
+		if(!(sizeX * 9 / 16 > sizeY))
+			tilesize = sizeX / Board.SIZE_X;
+		else tilesize = sizeY / Board.SIZE_Y;
+		
+		boardRenderer = new BoardRenderer(sizeX, sizeY, tilesize, b, loader);
+		entityRenderer = new EntityRenderer(tilesize, entityManager, loader);
 		
 	}
 	
@@ -27,6 +37,7 @@ public class MasterRenderer extends JLabel {
 			boardRenderer.renderMenu(g);
 		}else if(currentView == View.BOARD) {
 			boardRenderer.renderGame(g);
+			entityRenderer.render(g);
 		}
 	}
 	

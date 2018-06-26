@@ -3,26 +3,23 @@ package main;
 import logic.Listener;
 import logic.MainLogic;
 import renderer.Window;
-import world.Board;
 
 public class Main {
 
-	static Board board;
 	
 	/**
 	 * Startet das Spiel
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		board = new Board();
-		board.loadLevel("test");
-		Window w = new Window(800, 450, true, board);
-		w.setVisible(true);
+		Window w = new Window(800, 450, true);
 		
-		MainLogic logic = new MainLogic(w.renderer);
+		MainLogic logic = new MainLogic(w.displayX, w.displayY);
 		Listener listener = new Listener(logic);
 		w.addMouseListener(listener);
 		w.addKeyListener(listener);
+		w.add(logic.renderer);
+		w.setVisible(true);
 		logic.startGameLoop();
 	}
 }

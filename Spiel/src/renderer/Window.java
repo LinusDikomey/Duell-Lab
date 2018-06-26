@@ -5,16 +5,14 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 
-import world.Board;
-
 public class Window extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	public MasterRenderer renderer;
+	public int displayX, displayY;
 	
-	public Window(int sizeX, int sizeY, boolean fullscreen, Board b) {
+	public Window(int sizeX, int sizeY, boolean fullscreen) {
 		super("Spiel");
-		int displayX, displayY;
 		
 		if(fullscreen) {
 			Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -32,7 +30,5 @@ public class Window extends JFrame {
 		setSize(sizeX, sizeY);
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		renderer = new MasterRenderer(displayX, displayY, b);
-		this.add(renderer);
 	}
 }

@@ -6,17 +6,24 @@ import java.util.TimerTask;
 
 import renderer.MasterRenderer;
 import renderer.View;
+import world.Board;
 
 public class MainLogic {
 
-	MasterRenderer renderer;
+	Board board;
+	EntityManager entityManager;
+	public MasterRenderer renderer;
 	private int view = View.MENU;
 	Listener listener;
 	public Rectangle startButton;
 	
-	public MainLogic(MasterRenderer renderer) {
-		this.renderer = renderer;
+	public MainLogic(int sizeX, int sizeY) {
+		board = new Board();
+		entityManager = new EntityManager();
+		renderer = new MasterRenderer(sizeX, sizeY, board, entityManager);
 		listener = new Listener(this);
+		board.loadLevel("test");
+		
 		
 		startButton = renderer.boardRenderer.startButtonRec;
 	}
@@ -46,6 +53,7 @@ public class MainLogic {
 	
 	public void stopGame() {
 		if(view == View.BOARD) {
+			board.clearBoard();
 			view = View.MENU;
 		}
 	}

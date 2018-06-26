@@ -9,7 +9,7 @@ import world.Board;
 public class BoardRenderer  {
 
 	int sizeX , sizeY;
-	int tileSize;
+	int tilesize;
 	boolean useXBoard;
 	boolean useXButton;
 	Board board;
@@ -17,10 +17,11 @@ public class BoardRenderer  {
 	public double startButtonSize;
 	public Rectangle startButtonRec;
 	
-	public BoardRenderer(int sizeX, int sizeY, Board b, ImageLoader loader) {
+	public BoardRenderer(int sizeX, int sizeY, int tilesize, Board b, ImageLoader loader) {
 		this.sizeX = sizeX;
 		this.sizeY = sizeY;
 		this.loader = loader;
+		this.tilesize = tilesize;
 		
 		useXBoard = !(sizeX * 9 / 16 > sizeY);
 		board = b;
@@ -41,15 +42,12 @@ public class BoardRenderer  {
 	
 	public void renderGame(Graphics g) {
 		g.drawImage(loader.getImage("ground"), 0, 0, sizeX, sizeY, null);
-		if(useXBoard)
-			tileSize = sizeX / Board.SIZE_X;
-		else tileSize = sizeY / Board.SIZE_Y;
 		
 		for(int y = 0; y < Board.SIZE_Y; y++) {
 			for(int x = 0; x < Board.SIZE_X; x++) { 
 				if(board.getTile(x, y).render) {
 					BufferedImage currentTile = loader.getTileImage(board.getTile(x, y));
-					g.drawImage(currentTile, x * tileSize, y * tileSize, tileSize, tileSize, null);
+					g.drawImage(currentTile, x * tilesize, y * tilesize, tilesize, tilesize, null);
 				}
 			}
 		}
