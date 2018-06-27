@@ -7,6 +7,7 @@ import java.util.TimerTask;
 
 import entities.Entity;
 import entities.Item;
+import entities.Player;
 import renderer.MasterRenderer;
 import renderer.View;
 import toolbox.Key;
@@ -72,12 +73,19 @@ public class MainLogic {
 			entity.checkCollision(new Rectangle(-100, 0, 100, Board.SIZE_Y * 100));
 			entity.checkCollision(new Rectangle(Board.SIZE_X * 100, 0, 200, Board.SIZE_Y * 100));
 			entity.checkCollision(new Rectangle(0, Board.SIZE_Y * 100, Board.SIZE_X * 100, 200));
+			
 			for(int y = 0; y < Board.SIZE_Y; y++) {
 				for(int x = 0; x < Board.SIZE_X; x++) {
 					if(board.tiles[x][y].collidable) {
 						Rectangle box = board.tiles[x][y].collisionBox;
 						Rectangle rect = new Rectangle(x * 100 + box.x, y * 100 + box.y, box.width, box.height);
 						entity.checkCollision(rect);
+						if(entity instanceof Player) {
+							Player pEntity = (Player) entity;
+							if(! pEntity.alive) {
+								entityManager.entities.remove(entity);
+							}
+						}
 					}
 				}
 			}
@@ -88,6 +96,17 @@ public class MainLogic {
 	private void menuTick() {
 		if(Key.isPressed(KeyEvent.VK_ENTER)) {
 			startGame();
+		}
+	}
+	
+	public static final int DAMAGE_FIST = 1;
+	
+	public void doDamage(Rectangle area) {
+		for(Entity entity : entityManager.entities) {
+			if(entity instanceof Player && entity.collidesWith(area)) {
+				Player pEntity = (Player) entity;
+				pEntity.damage(DAMAGE_FIST);
+			}
 		}
 	}
 

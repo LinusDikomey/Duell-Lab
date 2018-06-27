@@ -16,12 +16,16 @@ public class Player extends Entity implements Tickable {
 	public Item[] inventory = new Item[3];
 	public int selectedSlot = 0;
 	private int holdTime = 0;
-
+	public int health = 20;
+	public boolean alive = true;
+	
+	int useDelay = 0;
+	
 	public Player(int x, int y, int player) {
 		super(x, y, true);
 
 		collisionBox = new Rectangle(20, 20, 60, 60);
-
+		
 		this.player = player;
 		if (player == 0)
 			texturePath = "gui/figur1";
@@ -40,7 +44,9 @@ public class Player extends Entity implements Tickable {
 	public void tick() {
 		int xSpeed = 0;
 		int ySpeed = 0;
-		boolean punch = false;
+		if(!alive) return;
+		
+		boolean useItem = false;
 		if (player == 1) {
 			if (Key.isPressed(KeyEvent.VK_NUMPAD1)) {
 				if (!(selectedSlot == 0)) {
@@ -78,7 +84,7 @@ public class Player extends Entity implements Tickable {
 					rotation = 270;
 				}
 				if(Key.isPressed(KeyEvent.VK_NUMPAD0)) {
-					punch = true;
+					useItem = true;
 				}
 			}
 		} else {
@@ -118,7 +124,7 @@ public class Player extends Entity implements Tickable {
 					rotation = 270;
 				}
 				if(Key.isPressed(KeyEvent.VK_SPACE)) {
-					punch = true;
+					useItem = true;
 				}
 			}
 		}
@@ -162,8 +168,24 @@ public class Player extends Entity implements Tickable {
 		nextX += xSpeed;
 		nextY += ySpeed;
 		
-		if(punch) {
-			
+		if(useItem && useDelay == 0) {
+			if(inventory[selectedSlot] == null) {
+				useDelay = 20;
+				System.out.println("Spieler " + player + " hat geschlagen!");
+				int damX = x + (int) (Math.sin(rotation) * 100);
+				int damY = y + (int) (-Math.cos(rotation) * 100);
+				Main.logic.doDamage(new Rectangle(damX, damY, 100, 100));
+			}
+		}else if(useDelay > 0) {
+			useDelay--;
+		}
+	}
+	
+	public void damage(int points) {
+		System.out.println("Spieler " + player + " hat Schaden erlitten!");
+		health -= points;
+		if(health < 1) {
+			alive = false;
 		}
 	}
 }

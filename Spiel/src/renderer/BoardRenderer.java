@@ -38,7 +38,7 @@ public class BoardRenderer  {
 	}
 	
 	public void renderGame(Graphics g) {
-		g.drawImage(Main.loader.getImage("tiles/ground"), 0, 0, sizeX, sizeY, null);
+		g.drawImage(Main.loader.getImage("tiles/ground"), 0, 0, tilesize * Board.SIZE_X, tilesize * Board.SIZE_Y, null);
 		
 		for(int y = 0; y < Board.SIZE_Y; y++) {
 			for(int x = 0; x < Board.SIZE_X; x++) { 
