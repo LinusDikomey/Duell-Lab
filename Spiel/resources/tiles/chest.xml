@@ -11,6 +11,6 @@
 	<Render>true</Render>
 	<Texture>wood_chest</Texture>
 	<Attached>
-		<Chest>loot1</Chest>
+		<Chest>loot_simple</Chest>
 	</Attached>
 </Tile>

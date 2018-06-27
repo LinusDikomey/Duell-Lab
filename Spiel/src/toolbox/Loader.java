@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.imageio.ImageIO;
 import javax.xml.parsers.DocumentBuilder;
@@ -115,6 +116,11 @@ public class Loader {
 				return (Element) nl.item(i);
 			}
 		}
+		return null;
+	}
+
+	public Map<Integer, String> getLoot(String lootName) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 	

@@ -1,7 +1,6 @@
 package world.attachable;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -11,18 +10,17 @@ import main.Main;
 
 public class Chest extends Attachable {
 
-	public Chest(int x, int y) {
+	String lootName;
+	
+	public Chest(int x, int y, String lootName) {
 		super(x, y);
+		this.lootName = lootName;
 	}
 	
 	@Override
 	public void onDestroy() {
 		
-		Map<Integer, String> loot = new HashMap<Integer, String>();
-		loot.put(10, "Bogen");
-		loot.put(15, "Dolch");
-		loot.put(25, "Schwert");
-		//---------------------------
+		Map<Integer, String> loot = Main.loader.getLoot(lootName);
 		int size = 0;
 		for(Integer i : loot.keySet()) {
 			if ( i > size ) {

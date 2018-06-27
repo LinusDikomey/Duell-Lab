@@ -1,12 +1,12 @@
 <!-- Easy Test Loot Spawns -->
 <Loot>
-	<Item name = "Hammer">
+	<Item name = "Kriegshammer">
 		<Wahrscheinlichkeit>5</Wahrscheinlichkeit>
 	</Item>
 	<Item name="Schwert">
 		<Wahrscheinlichkeit>5</Wahrscheinlichkeit>
     </Item>
-	<Item name="Axt">
+	<Item name="Kriegsaxt">
 		<Wahrscheinlichkeit>5</Wahrscheinlichkeit>
     </Item>
 	<Item name="Pistole">
