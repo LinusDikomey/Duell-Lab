@@ -1,21 +1,9 @@
 <Loot>
-	<Item name = "Dolch">
-		<Wahrscheinlichkeit>0</Wahrscheinlichkeit>
-	</Item>
-	<Item name="Schwert">
-		<Wahrscheinlichkeit>0</Wahrscheinlichkeit>
-    </Item>
 	<Item name="MG">
 		<Wahrscheinlichkeit>10</Wahrscheinlichkeit>
     </Item>
 	<Item name="Pistole">
 		<Wahrscheinlichkeit>15</Wahrscheinlichkeit>
-    </Item>
-	<Item name="Kriegshammer">
-		<Wahrscheinlichkeit>0</Wahrscheinlichkeit>
-    </Item>
-	<Item name="Kriegsaxt">
-		<Wahrscheinlichkeit>0</Wahrscheinlichkeit>
     </Item>
 	<Item name="Bogen">
 		<Wahrscheinlichkeit>5</Wahrscheinlichkeit>

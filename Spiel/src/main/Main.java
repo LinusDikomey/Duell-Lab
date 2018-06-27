@@ -5,6 +5,7 @@ import logic.MainLogic;
 import renderer.Window;
 import toolbox.Key;
 import toolbox.Loader;
+import world.attachable.Chest;
 
 public class Main {
 
