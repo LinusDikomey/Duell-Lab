@@ -24,7 +24,7 @@ public class Main {
 		w.add(logic.renderer);
 		w.setVisible(true);
 		
-		logic.board.loadLevel("circle");
+		logic.board.loadLevel("level");
 		logic.startGameLoop();
 	}
 }

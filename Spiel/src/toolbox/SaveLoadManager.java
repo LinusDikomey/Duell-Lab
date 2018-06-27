@@ -12,7 +12,7 @@ import world.Tile;
 
 public class SaveLoadManager {
 
-	public static Tile[][] load(File file) {
+	public static void load(File file, Board board) {
 		System.out.println("Lade: " + file.getName());
 		BufferedReader reader = null;
 		try {
@@ -32,10 +32,10 @@ public class SaveLoadManager {
 			}
 			String[] elems = line.split(",");
 			for(int x = 0; x < Board.SIZE_X; x++) {
-				tiles[x][y] = new Tile(elems[x]);
+				tiles[x][y] = board.getCopyOfTile(elems[x]);
 			}
 		}
-		return tiles;
+		board.tiles = tiles;
 	}	
 	
 	public static void save(Tile[][] tiles, File file) {

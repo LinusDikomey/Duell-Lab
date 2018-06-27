@@ -1,10 +1,10 @@
 <Tile>
 	<Collidable>true</Collidable>
 	<CollisionBox>
-		<X1>0</X1>
-		<Y1>20</Y1>
-		<width>100</width>
-		<height>60</height>
+		<X>0</X>
+		<Y>20</Y>
+		<Width>100</Width>
+		<Height>60</Height>
 	</CollisionBox>
 	<Destroyable>true</Destroyable>
 	<Health>1</Health>
