@@ -2,12 +2,8 @@ package entities;
 
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
-
-import toolbox.Loader;
+import main.Main;
 import world.Tickable;
 
 public abstract class Entity implements Tickable {
@@ -15,15 +11,13 @@ public abstract class Entity implements Tickable {
 	public int x, y;
 	public int nextX, nextY;
 	private BufferedImage texture;
-	protected Loader loader;
 	public Rectangle collisionBox = new Rectangle(20, 20, 80, 80);
 	boolean collidable = false;
 	
-	public Entity(int x, int y, boolean collidable, Loader loader) {
+	public Entity(int x, int y, boolean collidable) {
 		this.x = x;
 		this.y = y;
 		this.collidable = collidable;
-		this.loader = loader;
 	}
 	
 	public boolean moveX = false, moveY = false;
@@ -47,11 +41,7 @@ public abstract class Entity implements Tickable {
 	}
 	
 	protected void loadTexture(String name) {
-		try {
-			texture = ImageIO.read(new File("resources/textures/" + name + ".png"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		texture = Main.loader.getImage(name);
 	}
 	
 	@Override

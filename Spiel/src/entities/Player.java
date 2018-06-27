@@ -4,9 +4,8 @@ import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 
-import logic.EntityManager;
+import main.Main;
 import toolbox.Key;
-import toolbox.Loader;
 import world.Tickable;
 
 public class Player extends Entity implements Tickable {
@@ -14,17 +13,15 @@ public class Player extends Entity implements Tickable {
 	int player;
 	int rotation;
 	private String texturePath;
-	EntityManager entityManager;
 	public Item[] inventory = new Item[3];
 	public int selectedSlot = 0;
 	private int holdTime = 0;
 
-	public Player(int x, int y, Loader loader, int player, EntityManager entityManager) {
-		super(x, y, true, loader);
+	public Player(int x, int y, int player) {
+		super(x, y, true);
 
 		collisionBox = new Rectangle(20, 20, 60, 60);
 
-		this.entityManager = entityManager;
 		this.player = player;
 		if (player == 0)
 			texturePath = "gui/figur1";
@@ -36,13 +33,14 @@ public class Player extends Entity implements Tickable {
 
 	@Override
 	public BufferedImage getTexture() {
-		return loader.getRotatedImage(texturePath)[rotation / 45];
+		return Main.loader.getRotatedImage(texturePath)[rotation / 45];
 	}
 
 	@Override
 	public void tick() {
 		int xSpeed = 0;
 		int ySpeed = 0;
+		boolean punch = false;
 		if (player == 1) {
 			if (Key.isPressed(KeyEvent.VK_NUMPAD1)) {
 				if (!(selectedSlot == 0)) {
@@ -78,6 +76,9 @@ public class Player extends Entity implements Tickable {
 				} else if (Key.isPressed(KeyEvent.VK_LEFT)) {
 					xSpeed -= SPEED;
 					rotation = 270;
+				}
+				if(Key.isPressed(KeyEvent.VK_NUMPAD0)) {
+					punch = true;
 				}
 			}
 		} else {
@@ -116,23 +117,26 @@ public class Player extends Entity implements Tickable {
 					xSpeed -= SPEED;
 					rotation = 270;
 				}
+				if(Key.isPressed(KeyEvent.VK_SPACE)) {
+					punch = true;
+				}
 			}
 		}
 
 		if (holdTime >= 30) {
 			if (inventory[selectedSlot] == null) {
-				for (Entity entity : entityManager.entities) {
+				for (Entity entity : Main.logic.entityManager.entities) {
 					if (entity.getClass() == Item.class) {
 						if (entity.collidesWith(new Rectangle(x + collisionBox.x, y + collisionBox.y,
 								collisionBox.width, collisionBox.height))) {
 							inventory[selectedSlot] = (Item) entity;
-							entityManager.entities.remove(entity);
+							Main.logic.entityManager.entities.remove(entity);
 							break;
 						}
 					}
 				}
 			} else {
-				entityManager.entities.add(new Item(x, y, inventory[selectedSlot].itemName, loader));
+				Main.logic.entityManager.entities.add(new Item(x, y, inventory[selectedSlot].itemName));
 				inventory[selectedSlot] = null;
 			}
 			holdTime = 0;
@@ -157,5 +161,9 @@ public class Player extends Entity implements Tickable {
 		}
 		nextX += xSpeed;
 		nextY += ySpeed;
+		
+		if(punch) {
+			
+		}
 	}
 }

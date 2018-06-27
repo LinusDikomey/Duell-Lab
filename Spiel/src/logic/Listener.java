@@ -5,23 +5,21 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import main.Main;
 import renderer.View;
 
 public class Listener implements MouseListener, KeyListener {
-
-	MainLogic logic;
 	
-	public Listener(MainLogic l) {
-		logic = l;
+	public Listener() {
 	}
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		if(logic.getView() == View.MENU) {
-			int maxX = (int) logic.startButton.getMaxX();
-			int maxY = (int) logic.startButton.getMaxY();
-			if(e.getX() > logic.startButton.x && e.getX() < maxX && e.getY() > logic.startButton.y && e.getY() < maxY) {
-				logic.startGame();
+		if(Main.logic.getView() == View.MENU) {
+			int maxX = (int) Main.logic.startButton.getMaxX();
+			int maxY = (int) Main.logic.startButton.getMaxY();
+			if(e.getX() > Main.logic.startButton.x && e.getX() < maxX && e.getY() > Main.logic.startButton.y && e.getY() < maxY) {
+				Main.logic.startGame();
 			}
 		}
 	}
@@ -45,8 +43,8 @@ public class Listener implements MouseListener, KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		if(e.getKeyCode() == KeyEvent.VK_ESCAPE && logic.getView() == View.BOARD) {
-			logic.stopGame();
+		if(e.getKeyCode() == KeyEvent.VK_ESCAPE && Main.logic.getView() == View.BOARD) {
+			Main.logic.stopGame();
 		}
 		
 		/*if(e.getKeyCode() == KeyEvent.VK_LEFT) {

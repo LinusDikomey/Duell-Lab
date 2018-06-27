@@ -1,6 +1,7 @@
 package logic;
 
 import java.awt.Rectangle;
+import java.awt.event.KeyEvent;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -8,7 +9,7 @@ import entities.Entity;
 import entities.Item;
 import renderer.MasterRenderer;
 import renderer.View;
-import toolbox.Loader;
+import toolbox.Key;
 import world.Board;
 
 public class MainLogic {
@@ -21,11 +22,10 @@ public class MainLogic {
 	public Rectangle startButton;
 	
 	public MainLogic(int sizeX, int sizeY) {
-		Loader loader = new Loader();
 		board = new Board();
-		entityManager = new EntityManager(loader);
-		renderer = new MasterRenderer(sizeX, sizeY, board, entityManager, loader);
-		listener = new Listener(this);
+		entityManager = new EntityManager();
+		renderer = new MasterRenderer(sizeX, sizeY, board, entityManager);
+		listener = new Listener();
 		
 		startButton = renderer.boardRenderer.startButtonRec;
 	}
@@ -48,7 +48,8 @@ public class MainLogic {
 	}
 	
 	public void startGame() {
-		entityManager.entities.add(new Item(0, 0, "Bogen", entityManager.loader));
+		entityManager.entities.add(new Item(0, 0, "Bogen"));
+		entityManager.entities.add(new Item(31 * 100, 17 * 100, "Dolch"));
 		entityManager.addPlayers();
 		if(view == View.MENU) {
 			view = View.BOARD;
@@ -85,7 +86,9 @@ public class MainLogic {
 	}
 	
 	private void menuTick() {
-		
+		if(Key.isPressed(KeyEvent.VK_ENTER)) {
+			startGame();
+		}
 	}
 
 	//Getters / Setters

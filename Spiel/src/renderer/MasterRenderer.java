@@ -5,7 +5,6 @@ import java.awt.Graphics;
 import javax.swing.JLabel;
 
 import logic.EntityManager;
-import toolbox.Loader;
 import world.Board;
 
 public class MasterRenderer extends JLabel {
@@ -16,7 +15,7 @@ public class MasterRenderer extends JLabel {
 	public EntityRenderer entityRenderer;
 	public int currentView = 0;
 	
-	public MasterRenderer(int sizeX, int sizeY, Board b, EntityManager entityManager, Loader loader) {
+	public MasterRenderer(int sizeX, int sizeY, Board b, EntityManager entityManager) {
 		this.sizeX = sizeX;
 		this.sizeY = sizeY;
 		
@@ -26,7 +25,7 @@ public class MasterRenderer extends JLabel {
 			tilesize = sizeX / Board.SIZE_X;
 		else tilesize = sizeY / Board.SIZE_Y;
 		
-		boardRenderer = new BoardRenderer(sizeX, sizeY, tilesize, b, loader);
+		boardRenderer = new BoardRenderer(sizeX, sizeY, tilesize, b);
 		entityRenderer = new EntityRenderer(tilesize, entityManager);
 		
 	}

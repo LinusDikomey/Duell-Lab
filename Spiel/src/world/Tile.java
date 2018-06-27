@@ -6,11 +6,9 @@ import java.io.File;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import toolbox.Loader;
+import main.Main;
 
 public class Tile {
-
-	private static Loader loader = new Loader();
 	
 	public String name;
 	public int health;
@@ -22,8 +20,8 @@ public class Tile {
 	
 	public Tile(String name) {
 		this.name = name;
-		Document d = loader.loadXML(new File("resources/tiles/" + name + ".xml"));
-		Element tile = loader.getElement(d.getElementsByTagName("Tile"));
+		Document d = Main.loader.loadXML(new File("resources/tiles/" + name + ".xml"));
+		Element tile = Main.loader.getElement(d.getElementsByTagName("Tile"));
 		
 		health = Integer.parseInt(tile.getElementsByTagName("Health").item(0).getTextContent());
 		texture = tile.getElementsByTagName("Texture").item(0).getTextContent();
