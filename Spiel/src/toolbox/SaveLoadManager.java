@@ -32,7 +32,7 @@ public class SaveLoadManager {
 			}
 			String[] elems = line.split(",");
 			for(int x = 0; x < Board.SIZE_X; x++) {
-				tiles[x][y] = board.getCopyOfTile(elems[x]);
+				tiles[x][y] = new Tile(elems[x]);
 			}
 		}
 		board.tiles = tiles;

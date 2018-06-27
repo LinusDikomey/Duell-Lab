@@ -94,12 +94,6 @@ public class Loader {
 	return newImage;
 	}
 	
-	/**
-	 * Loads a PNG image inside the resources folder to the Buffer.
-	 * @param path Path relative to the resources folder. File ending not required.
-	 * @param name Name of the image in the Buffer used to identify it.
-	 */
-	
 	public Document loadXML(File file) {
 		try {
 			Document d = builder.parse(file);

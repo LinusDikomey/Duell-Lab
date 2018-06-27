@@ -1,7 +1,6 @@
 package world;
 
 import java.io.File;
-import java.util.HashMap;
 
 import toolbox.SaveLoadManager;
 public class Board {
@@ -26,21 +25,12 @@ public class Board {
 	public void clearBoard() {
 		for(int y = 0; y < SIZE_Y; y++) {
 			for(int x = 0; x < SIZE_X; x++) {
-				tiles[x][y] = getCopyOfTile("empty");
+				tiles[x][y] = new Tile("empty");
 			}
 		}
 	}
 	
 	public void loadLevel(String name) {
 		SaveLoadManager.load(new File("resources/levels/" + name + ".lvl"), this);
-	}
-	
-	private HashMap<String, Tile> tileList = new HashMap<String, Tile>();
-	
-	public Tile getCopyOfTile(String name) {
-		if(!tileList.containsKey(name)) {
-			tileList.put(name, new Tile(name));
-		}
-		return tileList.get(name).clone();
 	}
 }
