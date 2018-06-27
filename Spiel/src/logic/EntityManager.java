@@ -1,7 +1,7 @@
 package logic;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 import entities.Entity;
 import entities.Player;
@@ -17,11 +17,11 @@ public class EntityManager {
 		this.loader = loader;
 	}
 	
-	public List<Entity> entities = new ArrayList<Entity>();
+	public Queue<Entity> entities = new ConcurrentLinkedQueue<Entity>();
 	
 	public void addPlayers() {
-		player1 = new Player(0, 0, loader, 0);
-		player2 = new Player(31 * 100, 17 * 100, loader, 1);
+		player1 = new Player(0, 0, loader, 0, this);
+		player2 = new Player(31 * 100, 17 * 100, loader, 1, this);
 		entities.add(player1);
 		entities.add(player2);
 	}

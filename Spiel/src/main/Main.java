@@ -3,7 +3,7 @@ package main;
 import logic.Listener;
 import logic.MainLogic;
 import renderer.Window;
-import toolbox.IsKeyPressed;
+import toolbox.Key;
 
 public class Main {
 
@@ -16,7 +16,7 @@ public class Main {
 	public static void main(String[] args) {
 		Window w = new Window(800, 450, true);
 		
-		IsKeyPressed.initialize();
+		Key.initialize();
 		MainLogic logic = new MainLogic(w.displayX, w.displayY);
 		Listener listener = new Listener(logic);
 		w.addMouseListener(listener);

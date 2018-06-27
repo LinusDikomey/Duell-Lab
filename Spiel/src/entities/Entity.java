@@ -28,6 +28,11 @@ public abstract class Entity implements Tickable {
 	
 	public boolean moveX = false, moveY = false;
 	
+	public boolean collidesWith(Rectangle r) {
+		Rectangle collisionRect = new Rectangle(x + collisionBox.x, y + collisionBox.y, collisionBox.width, collisionBox.height);
+		return collisionRect.intersects(r);
+	}
+	
 	public void checkCollision(Rectangle r) {
 		if(collidable) {
 			Rectangle collisionRectX = new Rectangle(nextX + collisionBox.x, y + collisionBox.y, collisionBox.width, collisionBox.height);

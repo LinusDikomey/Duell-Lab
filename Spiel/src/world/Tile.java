@@ -21,7 +21,6 @@ public class Tile {
 	public Rectangle collisionBox = new Rectangle(0, 0, 100, 100);
 	
 	public Tile(String name) {
-		System.out.println("Erstellt: " + name);
 		this.name = name;
 		Document d = loader.loadXML(new File("resources/tiles/" + name + ".xml"));
 		Element tile = loader.getElement(d.getElementsByTagName("Tile"));

@@ -10,8 +10,12 @@ import toolbox.Loader;
 
 public class Item extends Entity {
 
+	public String itemName;
+	
 	public Item(int x, int y, String itemName, Loader loader) {
-		super(y, y, true, loader);
+		super(x, y, true, loader);
+		
+		this.itemName = itemName;
 		
 		Document d = loader.loadXML(new File("resources/items/" + itemName + ".xml"));
 		NodeList nl = d.getElementsByTagName("Item");

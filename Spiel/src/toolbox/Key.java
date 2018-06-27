@@ -5,12 +5,12 @@ import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyEvent;
 import java.util.HashMap;
 
-public class IsKeyPressed {
+public class Key {
 
 	private static volatile HashMap<Integer, Boolean> keysPressed = new HashMap<Integer, Boolean>();
 	
-	public static boolean pressed(int key) {
-		synchronized (IsKeyPressed.class) {
+	public static boolean isPressed(int key) {
+		synchronized (Key.class) {
 			if(!keysPressed.containsKey(key)) {
 				return false;
 			}
@@ -22,7 +22,7 @@ public class IsKeyPressed {
 		KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(new KeyEventDispatcher() {
 			 @Override
 		        public boolean dispatchKeyEvent(KeyEvent ke) {
-		            synchronized (IsKeyPressed.class) {
+		            synchronized (Key.class) {
 		                switch (ke.getID()) {
 		                case KeyEvent.KEY_PRESSED:
 		                	keysPressed.put(ke.getKeyCode(), true);
