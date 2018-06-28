@@ -2,12 +2,12 @@ empty,wall,chest,empty,wall,empty,empty,empty,empty,wall,wall,chest,wall,wall,wa
 empty,wall,wall,empty,empty,empty,wall,wall,empty,wall,wall,empty,empty,empty,empty,empty,wall,empty,wall,wall,wall,wall,empty,empty,empty,empty,empty,empty,empty,empty,empty,empty
 empty,empty,wall,empty,wall,empty,empty,empty,empty,wall,wall,wall,wall,wall,wall,empty,empty,empty,empty,empty,wall,wall,wall,wall,wall,wall,empty,wall,wall,wall,wall,empty
 wall,empty,wall,empty,wall,wall,wall,wall,empty,wall,empty,empty,empty,empty,empty,empty,wall,empty,wall,empty,empty,empty,empty,empty,empty,empty,empty,empty,empty,empty,wall,empty
-wall,empty,empty,empty,empty,wall,chest,wall,empty,wall,empty,wall,wall,wall,wall,empty,wall,empty,wall,wall,wall,wall,wall,empty,wall,wall,wall,empty,empty,empty,wall,empty
+wall,empty,empty,empty,empty,wall,empty,wall,empty,wall,empty,wall,wall,wall,wall,empty,wall,empty,wall,wall,wall,wall,wall,empty,wall,wall,wall,empty,empty,empty,wall,empty
 wall,wall,wall,wall,empty,wall,empty,wall,empty,wall,empty,wall,empty,chest,wall,empty,wall,empty,empty,empty,empty,empty,empty,empty,empty,wall,empty,empty,wall,wall,wall,empty
 empty,empty,empty,empty,empty,empty,empty,wall,empty,wall,empty,wall,empty,wall,wall,empty,wall,wall,empty,wall,wall,wall,wall,empty,empty,wall,empty,wall,wall,empty,empty,empty
 empty,wall,wall,wall,wall,wall,empty,wall,empty,wall,empty,empty,empty,wall,empty,empty,empty,wall,empty,empty,wall,chest,wall,empty,empty,wall,empty,wall,wall,empty,wall,wall
-empty,empty,empty,empty,empty,wall,empty,wall,empty,wall,wall,wall,wall,wall,empty,chest,empty,wall,empty,empty,wall,empty,wall,empty,empty,wall,empty,empty,empty,empty,wall,chest
-empty,wall,wall,wall,empty,wall,empty,wall,empty,empty,empty,empty,empty,empty,empty,chest,empty,empty,empty,empty,wall,empty,wall,empty,wall,wall,wall,wall,wall,wall,wall,empty
+empty,empty,empty,empty,empty,wall,empty,wall,empty,wall,wall,wall,wall,wall,empty,gold_chest,empty,wall,empty,empty,wall,empty,wall,empty,empty,wall,empty,empty,empty,empty,wall,chest
+empty,wall,wall,wall,empty,wall,empty,wall,empty,empty,empty,empty,empty,empty,empty,gold_chest,empty,empty,empty,empty,wall,empty,wall,empty,wall,wall,wall,wall,wall,wall,wall,empty
 empty,empty,empty,empty,chest,wall,empty,wall,wall,wall,wall,empty,wall,wall,empty,empty,empty,wall,empty,wall,wall,empty,wall,empty,empty,empty,empty,empty,empty,empty,empty,empty
 empty,wall,wall,wall,wall,wall,empty,empty,empty,empty,empty,empty,wall,wall,wall,empty,wall,wall,empty,empty,empty,empty,wall,wall,wall,empty,empty,wall,wall,wall,wall,wall
 empty,empty,wall,wall,wall,wall,wall,empty,wall,wall,wall,empty,empty,empty,empty,empty,empty,empty,empty,wall,wall,empty,empty,empty,wall,empty,empty,empty,empty,empty,empty,wall
@@ -15,4 +15,4 @@ wall,empty,empty,empty,empty,empty,wall,empty,wall,wall,wall,wall,wall,empty,emp
 wall,wall,wall,wall,wall,empty,wall,empty,empty,empty,empty,wall,chest,wall,wall,wall,empty,empty,empty,empty,empty,chest,wall,empty,wall,empty,empty,empty,empty,wall,empty,wall
 empty,chest,wall,empty,wall,empty,wall,wall,wall,wall,empty,wall,empty,empty,empty,empty,empty,wall,empty,wall,wall,wall,wall,empty,empty,empty,empty,wall,empty,wall,empty,empty
 empty,wall,wall,empty,empty,empty,empty,empty,empty,empty,empty,wall,wall,wall,wall,wall,wall,wall,empty,empty,empty,empty,empty,empty,wall,wall,wall,wall,empty,wall,wall,empty
-empty,empty,empty,empty,wall,wall,wall,wall,wall,wall,empty,empty,empty,empty,empty,empty,empty,empty,empty,wall,wall,wall,wall,empty,empty,empty,chest,wall,empty,chest,wall,empty
+empty,empty,empty,empty,wall,wall,wall,wall,wall,wall,empty,empty,empty,empty,empty,empty,empty,empty,empty,wall,wall,wall,wall,empty,empty,empty,chest,wall,empty,empty,wall,empty

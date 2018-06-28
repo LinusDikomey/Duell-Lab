@@ -1,18 +1,18 @@
 <!-- Easy Test Loot Spawns -->
 <Loot>
 	<Item name = "Kriegshammer">
-		<Wahrscheinlichkeit>5</Wahrscheinlichkeit>
+		<Wahrscheinlichkeit>1</Wahrscheinlichkeit>
 	</Item>
 	<Item name="Schwert">
-		<Wahrscheinlichkeit>5</Wahrscheinlichkeit>
+		<Wahrscheinlichkeit>8</Wahrscheinlichkeit>
     </Item>
 	<Item name="Kriegsaxt">
-		<Wahrscheinlichkeit>5</Wahrscheinlichkeit>
+		<Wahrscheinlichkeit>3</Wahrscheinlichkeit>
     </Item>
 	<Item name="Pistole">
-		<Wahrscheinlichkeit>5</Wahrscheinlichkeit>
+		<Wahrscheinlichkeit>0</Wahrscheinlichkeit>
     </Item>
     <Item name="Dolch">
-		<Wahrscheinlichkeit>5</Wahrscheinlichkeit>
+		<Wahrscheinlichkeit>8</Wahrscheinlichkeit>
     </Item>
 </Loot>
