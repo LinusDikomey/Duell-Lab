@@ -30,6 +30,9 @@ public class Tile {
 	private static HashMap<String, Tile> tileList = new HashMap<String, Tile>();
 	
 	public Tile(String name, int x, int y) {
+		Document d = Main.loader.loadXML(new File("resources/tiles/" + name + ".xml"));
+		Element tile = Main.loader.getElement(d.getElementsByTagName("Tile"));
+		
 		if(tileList.containsKey(name)) {
 			this.name = name;
 			this.health = tileList.get(name).health;
@@ -38,11 +41,8 @@ public class Tile {
 			this.render = tileList.get(name).render;
 			this.texture = tileList.get(name).texture;
 			this.collisionBox = tileList.get(name).collisionBox;
-			attached = tileList.get(name).attached.subList(0, tileList.get(name).attached.size());
 		}else {
 			this.name = name;
-			Document d = Main.loader.loadXML(new File("resources/tiles/" + name + ".xml"));
-			Element tile = Main.loader.getElement(d.getElementsByTagName("Tile"));
 			
 			health = Integer.parseInt(tile.getElementsByTagName("Health").item(0).getTextContent());
 			texture = tile.getElementsByTagName("Texture").item(0).getTextContent();
@@ -52,23 +52,25 @@ public class Tile {
 			Element collision = (Element) tile.getElementsByTagName("CollisionBox").item(0);
 			collisionBox = new Rectangle(Integer.parseInt(collision.getElementsByTagName("X").item(0).getTextContent()), Integer.parseInt(collision.getElementsByTagName("Y").item(0).getTextContent()), Integer.parseInt(collision.getElementsByTagName("Width").item(0).getTextContent()), Integer.parseInt(collision.getElementsByTagName("Height").item(0).getTextContent()));
 			
-			if(tile.getElementsByTagName("Attached").getLength() != 0) {
-				NodeList attachedElems = tile.getElementsByTagName("Attached").item(0).getChildNodes();
-				for(int i = 0; i < attachedElems.getLength(); i++) {
-					if(attachedElems.item(i).getNodeType() != Node.ELEMENT_NODE) {
-						continue;
-					}
-					switch(attachedElems.item(i).getNodeName()) {
-					case "Chest":
-						attached.add(new Chest(x, y, attachedElems.item(i).getTextContent()));
+			
+			tileList.put(name, this);
+		}
+		
+		if(tile.getElementsByTagName("Attached").getLength() != 0) {
+			NodeList attachedElems = tile.getElementsByTagName("Attached").item(0).getChildNodes();
+			for(int i = 0; i < attachedElems.getLength(); i++) {
+				if(attachedElems.item(i).getNodeType() != Node.ELEMENT_NODE) {
+					continue;
+				}
+				switch(attachedElems.item(i).getNodeName()) {
+				case "Chest":
+					attached.add(new Chest(x, y, attachedElems.item(i).getTextContent()));
+					break;
+					default:
+						System.out.println("Error, invalid attachable in: " + name + ", name: " + attachedElems.item(i).getNodeName());
 						break;
-						default:
-							System.out.println("Error, invalid attachable in: " + name + ", name: " + attachedElems.item(i).getNodeName());
-							break;
-					}
 				}
 			}
-			tileList.put(name, this);
 		}
 	}
 	
