@@ -1,5 +1,5 @@
 <Item>
-	<Cooldown>10</Cooldown>
+	<Cooldown>15</Cooldown>
 	<Nahkampf mode = "front">
 		<Range>0.5</Range>
 		<Damage>2</Damage>

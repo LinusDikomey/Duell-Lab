@@ -18,6 +18,7 @@ public class Player extends Entity implements Tickable {
 	private int holdTime = 0;
 	public int health = 20;
 	public boolean alive = true;
+	private boolean wasDamaged = false;
 	
 	int useDelay = 0;
 	
@@ -42,6 +43,7 @@ public class Player extends Entity implements Tickable {
 
 	@Override
 	public void tick() {
+		wasDamaged = false;
 		int xSpeed = 0;
 		int ySpeed = 0;
 		if(!alive) return;
@@ -166,6 +168,10 @@ public class Player extends Entity implements Tickable {
 				}
 			}
 		}
+		if(useDelay > 0) {
+			xSpeed *= 0.9f;
+			ySpeed *= 0.9f;
+		}
 		nextX += xSpeed;
 		nextY += ySpeed;
 		if(useItem && useDelay == 0) {
@@ -201,6 +207,10 @@ public class Player extends Entity implements Tickable {
 	}
 	
 	public void damage(int points) {
+		if(wasDamaged) {
+			return;
+		}
+		wasDamaged = true;
 		health -= points;
 		if(health < 1) {
 			alive = false;

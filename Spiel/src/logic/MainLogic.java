@@ -53,10 +53,10 @@ public class MainLogic {
 	
 	public void startGame() {
 		board.loadLevel("level");
-		entityManager.entities.add(new Item(0, 0, "Kriegshammer"));
-		entityManager.entities.add(new Item(31 * 100, 17 * 100, "Kriegsaxt"));
-		entityManager.entities.add(new Item(0, 0, "Kriegsaxt"));
-		entityManager.entities.add(new Item(31 * 100, 17 * 100, "Kriegshammer"));
+		entityManager.entities.add(new Item(0, 0, "Dolch"));
+		entityManager.entities.add(new Item(31 * 100, 17 * 100, "Dolch"));
+		entityManager.entities.add(new Item(0, 0, "Schwert"));
+		entityManager.entities.add(new Item(31 * 100, 17 * 100, "Schwert"));
 		entityManager.addPlayers();
 		Chest test = new Chest(5, 5, "loot_simple");
 		test.onDestroy();
