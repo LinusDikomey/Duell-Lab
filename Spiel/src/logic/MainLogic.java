@@ -12,6 +12,7 @@ import renderer.MasterRenderer;
 import renderer.View;
 import toolbox.Key;
 import world.Board;
+import world.attachable.Chest;
 
 public class MainLogic {
 
@@ -21,6 +22,8 @@ public class MainLogic {
 	private int view = View.MENU;
 	Listener listener;
 	public Rectangle startButton;
+	
+	public Rectangle debug;
 	
 	public MainLogic(int sizeX, int sizeY) {
 		board = new Board();
@@ -55,6 +58,8 @@ public class MainLogic {
 		entityManager.entities.add(new Item(0, 0, "Kriegsaxt"));
 		entityManager.entities.add(new Item(31 * 100, 17 * 100, "Kriegshammer"));
 		entityManager.addPlayers();
+		Chest test = new Chest(5, 5, "loot_simple");
+		test.onDestroy();
 		if(view == View.MENU) {
 			view = View.BOARD;
 		}
@@ -103,6 +108,7 @@ public class MainLogic {
 	}
 	
 	public void doDamage(int damage, Rectangle area, Player damager) {
+		debug = area;
 		for(Entity entity : entityManager.entities) {
 			if(entity instanceof Player && entity.collidesWith(area)) {
 				Player pEntity = (Player) entity;

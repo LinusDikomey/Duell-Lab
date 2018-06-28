@@ -49,7 +49,6 @@ public class Chest extends Attachable {
 			}
 		}
 		String item = loot.get(smallest);
-		
 		Main.logic.entityManager.entities.add(new Item(x * 100, y * 100, item));
 	}
 	

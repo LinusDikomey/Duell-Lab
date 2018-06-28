@@ -1,6 +1,8 @@
 package renderer;
 
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 import entities.Entity;
 import entities.Player;
@@ -16,6 +18,12 @@ public class EntityRenderer {
 	}
 
 	public void render(Graphics g) {
+		g.setColor(Color.RED);
+		Rectangle r = Main.logic.debug;
+		if(r != null) {
+			g.drawRect((int) ((r.x / 100f) * tilesize) , (int) ((r.y / 100f) * tilesize), (int) ((r.width / 100f) * tilesize), (int)  ((r.height / 100f) * tilesize));
+		}
+		
 		for(Entity entity : Main.logic.entityManager.entities) {
 			g.drawImage(entity.getTexture(), entity.x * tilesize / 100, entity.y * tilesize / 100, tilesize, tilesize, null);
 			if(entity instanceof Player) {

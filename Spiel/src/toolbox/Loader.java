@@ -113,9 +113,26 @@ public class Loader {
 		return null;
 	}
 
+	private Map<String, Map<Integer, String>> loots = new HashMap<String, Map<Integer, String>>();
+	
 	public Map<Integer, String> getLoot(String lootName) {
-		// TODO Auto-generated method stub
-		return null;
+		if(loots.containsKey(lootName)) {
+			return loots.get(lootName);
+		}else {
+			int pointer = 0;
+			Map<Integer, String> current = new HashMap<Integer, String>();
+			Document d = loadXML(new File("resources/loot/" + lootName + ".xml"));
+			Element loot = (Element) d.getElementsByTagName("Loot").item(0);
+			NodeList items = loot.getElementsByTagName("Item");
+			for(int i = 0; i < items.getLength(); i++) {
+				Element item = (Element) items.item(i);
+				current.put(Integer.parseInt(item.getElementsByTagName("Wahrscheinlichkeit").item(0).getTextContent()) + pointer, item.getAttribute("name"));
+				pointer += Integer.parseInt(item.getElementsByTagName("Wahrscheinlichkeit").item(0).getTextContent());
+			}
+			
+			loots.put(lootName, current);
+			return current;
+		}
 	}
 	
 }
