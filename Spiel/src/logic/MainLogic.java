@@ -12,7 +12,6 @@ import renderer.View;
 import toolbox.Key;
 import world.Board;
 import world.Tile;
-import world.attachable.Chest;
 
 public class MainLogic {
 
@@ -54,8 +53,6 @@ public class MainLogic {
 	public void startGame() {
 		board.loadLevel("level");
 		entityManager.addPlayers();
-		Chest test = new Chest(5, 5, "loot_simple");
-		test.onDestroy();
 		if(view == View.MENU) {
 			view = View.BOARD;
 		}
