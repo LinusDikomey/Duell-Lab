@@ -68,7 +68,7 @@ public class Tile {
 					}
 				}
 			}
-			
+			tileList.put(name, this);
 		}
 	}
 	

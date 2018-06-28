@@ -202,6 +202,7 @@ public class Player extends Entity implements Tickable {
 							damX += (int) (Math.sin(Math.toRadians(rotation)) * 25);
 							damY += (int) (-Math.cos(Math.toRadians(rotation)) * 25);
 							Main.logic.doDamage(item.meleeDamage, new Rectangle(damX - 25, damY - 25, 50, 50), this);
+							//if(damX > 0 && damX)
 							if (Main.logic.board.getTile(damX / 100, damY / 100).collidable) {
 								break;
 							}
