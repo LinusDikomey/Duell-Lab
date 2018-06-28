@@ -180,7 +180,7 @@ public class Player extends Entity implements Tickable {
 				useDelay = 20;
 				int damX = x + 50 + (int) (Math.sin(Math.toRadians(rotation)) * 100);
 				int damY = y + 50 + (int) (-Math.cos(Math.toRadians(rotation)) * 100);
-				Main.logic.doDamage(1, new Rectangle(damX, damY, 100, 100), this);
+				Main.logic.doDamage(1, new Rectangle(damX -50, damY -50, 100, 100), this);
 				
 			}else if(item.meleeMode != null) {
 				useDelay = item.cooldown;

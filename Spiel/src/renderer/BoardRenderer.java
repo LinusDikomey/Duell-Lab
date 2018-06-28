@@ -48,6 +48,12 @@ public class BoardRenderer  {
 				}
 			}
 		}
+		
+		if(!Main.logic.entityManager.player1.alive) {
+			g.drawImage(Main.loader.getImage("gui/sieg2"), 0, 0, tilesize * Board.SIZE_X, tilesize * Board.SIZE_Y, null);
+		}else if(!Main.logic.entityManager.player2.alive) {
+			g.drawImage(Main.loader.getImage("gui/sieg1"), 0, 0, tilesize * Board.SIZE_X, tilesize * Board.SIZE_Y, null);
+		}
 	}
 	
 }
