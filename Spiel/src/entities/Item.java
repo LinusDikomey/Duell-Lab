@@ -54,7 +54,6 @@ public class Item extends Entity {
 					meleeOffset = 0;
 				}
 			}
-			System.out.println("HUI: " + meleeMode + ", " + cooldown + ", " + meleeRange);
 		}
 		
 		this.itemName = itemName;

@@ -129,7 +129,7 @@ public class Player extends Entity implements Tickable {
 			}
 		}
 
-		if (holdTime >= 30) {
+		if (holdTime >= 40) {
 			if (inventory[selectedSlot] == null) {
 				for (Entity entity : Main.logic.entityManager.entities) {
 					if (entity.getClass() == Item.class) {
