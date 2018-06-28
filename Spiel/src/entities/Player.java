@@ -172,19 +172,27 @@ public class Player extends Entity implements Tickable {
 			Item item = inventory[selectedSlot];
 			if(item == null) {
 				useDelay = 20;
-				int damX = x + (int) (Math.sin(rotation) * 100);
-				int damY = y + (int) (-Math.cos(rotation) * 100);
+				int damX = x + 50 + (int) (Math.sin(Math.toRadians(rotation)) * 100);
+				int damY = y + 50 + (int) (-Math.cos(Math.toRadians(rotation)) * 100);
 				Main.logic.doDamage(1, new Rectangle(damX, damY, 100, 100), this);
 				
 			}else if(item.meleeMode != null) {
 				useDelay = item.cooldown;
 				if(item.meleeMode.equals("radius")) {
-					int damX = x + 50 + (int) (Math.sin(Math.toRadians(rotation)) * item.meleeOffset * 100f);
-					int damY = y + 50 + (int) (-Math.cos(Math.toRadians(rotation)) * item.meleeOffset * 100f);		
+					int damX = x + 50 + (int) (Math.sin(Math.toRadians(rotation)) * item.meleeOffset * 100);
+					int damY = y + 50 + (int) (-Math.cos(Math.toRadians(rotation)) * item.meleeOffset * 100);
 					Main.logic.doDamage(item.meleeDamage, new Rectangle(damX - 50 - (int) (item.meleeRange * 100), damY - 50 - (int) (item.meleeRange * 100) , 100 + (int) (item.meleeRange * 200), + 100 + (int) (item.meleeRange * 200)), this);
 					
+				}else if(item.meleeMode.equals("front")) {
+					int damX = x + 50;
+					int damY = y + 50;
+					for(int i = 0; i < item.meleeRange * 4; i++) {
+						damX += (int) (Math.sin(Math.toRadians(rotation)) * 25);
+						damY += (int) (-Math.cos(Math.toRadians(rotation)) * 25);
+						Main.logic.doDamage(item.meleeDamage, new Rectangle(damX - 25, damY -25, 50, 50), this); 
+					}
 				}else {
-					System.out.println("Fehler");
+					System.out.println("Error, invalid melee damage type!");
 				}
 			}
 		}else if(useDelay > 0) {
