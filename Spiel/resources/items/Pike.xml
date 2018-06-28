@@ -1,0 +1,8 @@
+<Item>
+	<Cooldown>80</Cooldown>
+	<Nahkampf mode = "front">
+		<Range>4</Range>
+		<Damage>4</Damage>
+	</Nahkampf>
+	<Texture>pike</Texture>
+</Item>

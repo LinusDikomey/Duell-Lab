@@ -9,13 +9,16 @@
 		<Wahrscheinlichkeit>1</Wahrscheinlichkeit>
     </Item>
 	<Item name="Kriegshammer">
-		<Wahrscheinlichkeit>20</Wahrscheinlichkeit>
+		<Wahrscheinlichkeit>15</Wahrscheinlichkeit>
     </Item>
 	<Item name="Kriegsaxt">
 		<Wahrscheinlichkeit>20</Wahrscheinlichkeit>
     </Item>
 	<Item name="Bogen">
 		<Wahrscheinlichkeit>1</Wahrscheinlichkeit>
+    </Item>
+    <Item name="Pike">
+		<Wahrscheinlichkeit>10</Wahrscheinlichkeit>
     </Item>
 	
 </Loot>
