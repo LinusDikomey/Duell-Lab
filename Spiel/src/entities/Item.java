@@ -28,6 +28,7 @@ public class Item extends Entity {
 	public int rangedMagazine;
 	public int rangedReloadTime;
 	public int rangedSpeed;
+	public String projectileName;
 	
 	public int currentMagazine = 0;
 	public int currentreload = 0;
@@ -51,6 +52,7 @@ public class Item extends Entity {
 			rangedMagazine = itemList.get(itemName).rangedMagazine;
 			rangedReloadTime = itemList.get(itemName).rangedReloadTime;
 			rangedSpeed = itemList.get(itemName).rangedSpeed;
+			projectileName = itemList.get(itemName).projectileName;
 			
 		}else {
 			Document d = Main.loader.loadXML(new File("resources/items/" + itemName + ".xml"));
@@ -79,6 +81,7 @@ public class Item extends Entity {
 				rangedMagazine = Integer.parseInt(ranged.getElementsByTagName("Magazine").item(0).getTextContent());
 				rangedReloadTime = Integer.parseInt(ranged.getElementsByTagName("ReloadTime").item(0).getTextContent());
 				rangedSpeed = Integer.parseInt(ranged.getElementsByTagName("Speed").item(0).getTextContent());
+				projectileName = ranged.getElementsByTagName("ProjectileTexture").item(0).getTextContent();
 			}
 			
 			itemList.put(itemName, this);

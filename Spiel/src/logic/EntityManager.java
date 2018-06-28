@@ -5,6 +5,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 import entities.Entity;
 import entities.Player;
+import entities.Projectile;
 
 public class EntityManager {
 
@@ -12,6 +13,7 @@ public class EntityManager {
 	public Player player2;
 
 	public Queue<Entity> entities = new ConcurrentLinkedQueue<Entity>();
+	public Queue<Projectile> projectiles = new ConcurrentLinkedQueue<Projectile>();
 	
 	public void addPlayers() {
 		player1 = new Player(0, 0, 0);
