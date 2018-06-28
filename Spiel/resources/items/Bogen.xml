@@ -5,7 +5,7 @@
 		<Damage>5</Damage>
 		<Magazine>10</Magazine>
 		<ReloadTime>20</ReloadTime>
-		<Speed>1.5</Speed>
+		<Speed>20</Speed>
 		<ProjectileTexture>arrow</ProjectileTexture>
 	</Fernkampf>
 	<Texture>bogen</Texture>
