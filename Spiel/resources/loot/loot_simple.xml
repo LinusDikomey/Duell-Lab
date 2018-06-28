@@ -12,4 +12,7 @@
 	<Item name="Pistole">
 		<Wahrscheinlichkeit>5</Wahrscheinlichkeit>
     </Item>
+    <Item name="Dolch">
+		<Wahrscheinlichkeit>5</Wahrscheinlichkeit>
+    </Item>
 </Loot>

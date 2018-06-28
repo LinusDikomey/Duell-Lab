@@ -2,7 +2,7 @@
 	<Cooldown>10</Cooldown>
 	<Nahkampf mode = "front">
 		<Range>0.5</Range>
-		<Damage>3</Damage>
+		<Damage>2</Damage>
 	</Nahkampf>
 	<Texture>dolch</Texture>
 </Item>
