@@ -6,6 +6,7 @@
 		<Magazine>10</Magazine>
 		<ReloadTime>20</ReloadTime>
 		<Speed>1.5</Speed>
+		<ProjectileTexture>arrow</ProjectileTexture>
 	</Fernkampf>
 	<Texture>bogen</Texture>
 </Item>
