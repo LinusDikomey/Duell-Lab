@@ -35,6 +35,8 @@ public class EntityRenderer {
 				if(pEntity.player == 1) {
 					pointer += 25;
 				}
+				g.setColor(Color.BLUE);
+				g.fillRect(0 + pointer * tilesize, 0, (int) ((pEntity.useDelay / 400f) * tilesize * 10), tilesize);
 				int health = pEntity.health;
 				for(int p = pointer; p < pointer + 5; p++) {
 					if(health >= 4) {

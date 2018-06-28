@@ -2,26 +2,34 @@ package world;
 
 import java.awt.Rectangle;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 import main.Main;
+import world.attachable.Attachable;
+import world.attachable.Chest;
 
 public class Tile {
 	
 	public String name;
 	public int health;
 	public boolean collidable;
-	protected boolean destroyable;
+	public boolean destroyable;
 	public boolean render;
 	public String texture;
 	public Rectangle collisionBox = new Rectangle(0, 0, 100, 100);
+	public List<Attachable> attached = new ArrayList<Attachable>();
+	public boolean wasDamaged = false;
 	
 	private static HashMap<String, Tile> tileList = new HashMap<String, Tile>();
 	
-	public Tile(String name) {
+	public Tile(String name, int x, int y) {
 		if(tileList.containsKey(name)) {
 			this.name = name;
 			this.health = tileList.get(name).health;
@@ -30,6 +38,7 @@ public class Tile {
 			this.render = tileList.get(name).render;
 			this.texture = tileList.get(name).texture;
 			this.collisionBox = tileList.get(name).collisionBox;
+			attached = tileList.get(name).attached.subList(0, tileList.get(name).attached.size());
 		}else {
 			this.name = name;
 			Document d = Main.loader.loadXML(new File("resources/tiles/" + name + ".xml"));
@@ -42,10 +51,57 @@ public class Tile {
 			collidable = Boolean.parseBoolean(tile.getElementsByTagName("Collidable").item(0).getTextContent());
 			Element collision = (Element) tile.getElementsByTagName("CollisionBox").item(0);
 			collisionBox = new Rectangle(Integer.parseInt(collision.getElementsByTagName("X").item(0).getTextContent()), Integer.parseInt(collision.getElementsByTagName("Y").item(0).getTextContent()), Integer.parseInt(collision.getElementsByTagName("Width").item(0).getTextContent()), Integer.parseInt(collision.getElementsByTagName("Height").item(0).getTextContent()));
+			
+			if(tile.getElementsByTagName("Attached").getLength() != 0) {
+				NodeList attachedElems = tile.getElementsByTagName("Attached").item(0).getChildNodes();
+				for(int i = 0; i < attachedElems.getLength(); i++) {
+					if(attachedElems.item(i).getNodeType() != Node.ELEMENT_NODE) {
+						continue;
+					}
+					switch(attachedElems.item(i).getNodeName()) {
+					case "Chest":
+						attached.add(new Chest(x, y, attachedElems.item(i).getTextContent()));
+						break;
+						default:
+							System.out.println("Error, invalid attachable in: " + name + ", name: " + attachedElems.item(i).getNodeName());
+							break;
+					}
+				}
+			}
+			
 		}
 	}
 	
-	public void onAttack() {}
-	public void onBuild() {}
-	public void onDestroy() {}	
+	public void damage(int damage) {
+		if(!wasDamaged) {
+			health -= damage;
+			wasDamaged = true;
+			onHit();
+			if(health <= 0) {
+				onDestroy();
+			}
+		}
+	}
+	
+	public void onHit() {
+		for(Attachable a : attached) {
+			a.onHit();
+		}
+	}
+	public void onBuild() {
+		for(Attachable a : attached) {
+			a.onBuild();
+		}
+	}
+	public void onDestroy() {
+		for(Attachable a : attached) {
+			a.onDestroy();
+		}
+	}	
+	public void onTick() {
+		wasDamaged = false;
+		for(Attachable a : attached) {
+			a.onTick();
+		}
+	}
 }

@@ -25,7 +25,7 @@ public class Board {
 	public void clearBoard() {
 		for(int y = 0; y < SIZE_Y; y++) {
 			for(int x = 0; x < SIZE_X; x++) {
-				tiles[x][y] = new Tile("empty");
+				tiles[x][y] = new Tile("empty", x, y);
 			}
 		}
 	}

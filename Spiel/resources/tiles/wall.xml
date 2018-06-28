@@ -7,7 +7,7 @@
 		<Height>100</Height>
 	</CollisionBox>
 	<Destroyable>true</Destroyable>
-	<Health>5</Health>
+	<Health>10</Health>
 	<Render>true</Render>
 	<Texture>wall</Texture>
 </Tile>

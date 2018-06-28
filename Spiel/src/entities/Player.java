@@ -20,7 +20,7 @@ public class Player extends Entity implements Tickable {
 	public boolean alive = true;
 	private boolean wasDamaged = false;
 	
-	int useDelay = 0;
+	public int useDelay = 0;
 	
 	public Player(int x, int y, int player) {
 		super(x, y, true);

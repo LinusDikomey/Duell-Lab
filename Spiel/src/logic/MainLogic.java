@@ -12,6 +12,7 @@ import renderer.MasterRenderer;
 import renderer.View;
 import toolbox.Key;
 import world.Board;
+import world.Tile;
 import world.attachable.Chest;
 
 public class MainLogic {
@@ -84,6 +85,7 @@ public class MainLogic {
 			
 			for(int y = 0; y < Board.SIZE_Y; y++) {
 				for(int x = 0; x < Board.SIZE_X; x++) {
+					board.getTile(x, y).onTick();
 					if(board.tiles[x][y].collidable) {
 						Rectangle box = board.tiles[x][y].collisionBox;
 						Rectangle rect = new Rectangle(x * 100 + box.x, y * 100 + box.y, box.width, box.height);
@@ -112,8 +114,22 @@ public class MainLogic {
 		for(Entity entity : entityManager.entities) {
 			if(entity instanceof Player && entity.collidesWith(area)) {
 				Player pEntity = (Player) entity;
-				if(!(pEntity == damager)) {
+				if(pEntity != damager) {
 					pEntity.damage(damage);
+				}
+			}
+		}
+		
+		for(int y = 0; y < Board.SIZE_Y; y++) {
+			for(int x = 0; x < Board.SIZE_X; x++) {
+				Tile t = board.getTile(x, y);
+				Rectangle tileCol = new Rectangle((x * 100) + t.collisionBox.x, (y * 100) + t.collisionBox.y, t.collisionBox.width, t.collisionBox.height);
+				if(tileCol.intersects(area) && t.destroyable) {
+					t.damage(damage);
+					if(t.health <= 0) {
+						board.setTile(x, y, new Tile("empty", x, y));
+					}
+					
 				}
 			}
 		}
