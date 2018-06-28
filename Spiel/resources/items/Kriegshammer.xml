@@ -1,9 +1,9 @@
 <Item>
 	<Cooldown>60</Cooldown>
-	<Nahkampf mode = "aoe">
-		<Range>3</Range>
-		<Offset>3</Offset>
-		<Damage>10</Damage>
+	<Nahkampf mode = "radius">
+		<Range>1</Range>
+		<Offset>2</Offset>
+		<Damage>7</Damage>
 	</Nahkampf>
 	<Texture>hammer</Texture>
 </Item>

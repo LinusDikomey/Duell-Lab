@@ -49,8 +49,11 @@ public class MainLogic {
 	}
 	
 	public void startGame() {
-		entityManager.entities.add(new Item(0, 0, "Bogen"));
-		entityManager.entities.add(new Item(31 * 100, 17 * 100, "Dolch"));
+		board.loadLevel("level");
+		entityManager.entities.add(new Item(0, 0, "Kriegshammer"));
+		entityManager.entities.add(new Item(31 * 100, 17 * 100, "Kriegsaxt"));
+		entityManager.entities.add(new Item(0, 0, "Kriegsaxt"));
+		entityManager.entities.add(new Item(31 * 100, 17 * 100, "Kriegshammer"));
 		entityManager.addPlayers();
 		if(view == View.MENU) {
 			view = View.BOARD;
@@ -99,13 +102,13 @@ public class MainLogic {
 		}
 	}
 	
-	public static final int DAMAGE_FIST = 1;
-	
-	public void doDamage(Rectangle area) {
+	public void doDamage(int damage, Rectangle area, Player damager) {
 		for(Entity entity : entityManager.entities) {
 			if(entity instanceof Player && entity.collidesWith(area)) {
 				Player pEntity = (Player) entity;
-				pEntity.damage(DAMAGE_FIST);
+				if(!(pEntity == damager)) {
+					pEntity.damage(damage);
+				}
 			}
 		}
 	}

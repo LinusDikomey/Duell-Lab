@@ -10,7 +10,7 @@ import world.Tickable;
 
 public class Player extends Entity implements Tickable {
 
-	int player;
+	public int player;
 	int rotation;
 	private String texturePath;
 	public Item[] inventory = new Item[3];
@@ -160,6 +160,7 @@ public class Player extends Entity implements Tickable {
 			} else {
 				if (ySpeed > 0) {
 					rotation = 225;
+					
 				} else {
 					rotation = 315;
 				}
@@ -167,14 +168,27 @@ public class Player extends Entity implements Tickable {
 		}
 		nextX += xSpeed;
 		nextY += ySpeed;
-		
 		if(useItem && useDelay == 0) {
-			if(inventory[selectedSlot] == null) {
+			Item item = inventory[selectedSlot];
+			if(item == null) {
 				useDelay = 20;
+				
 				System.out.println("Spieler " + player + " hat geschlagen!");
 				int damX = x + (int) (Math.sin(rotation) * 100);
 				int damY = y + (int) (-Math.cos(rotation) * 100);
-				Main.logic.doDamage(new Rectangle(damX, damY, 100, 100));
+				Main.logic.doDamage(1, new Rectangle(damX, damY, 100, 100), this);
+				
+			}else if(item.meleeMode != null) {
+				useDelay = item.cooldown;
+				if(item.meleeMode.equals("radius")) {
+					System.out.println("Spieler " + player + " hat mit Radius geschlagen!");
+					int damX = x + 50 + (int) (Math.sin(rotation) * item.meleeOffset * 100);
+					int damY = y + 50 + (int) (-Math.cos(rotation) * item.meleeOffset * 100);		
+					Main.logic.doDamage(item.meleeDamage, new Rectangle(damX - 50 - (int) (item.meleeRange * 100), damY - 50 - (int) (item.meleeRange * 100) , 100 + (int) (item.meleeRange * 200), + 100 + (int) (item.meleeRange * 200)), this);
+					
+				}else {
+					System.out.println("Fehler");
+				}
 			}
 		}else if(useDelay > 0) {
 			useDelay--;
@@ -185,6 +199,7 @@ public class Player extends Entity implements Tickable {
 		System.out.println("Spieler " + player + " hat Schaden erlitten!");
 		health -= points;
 		if(health < 1) {
+			System.out.println("Spieler " + player + " ist tot");
 			alive = false;
 		}
 	}

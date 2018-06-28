@@ -5,7 +5,6 @@ import logic.MainLogic;
 import renderer.Window;
 import toolbox.Key;
 import toolbox.Loader;
-import world.attachable.Chest;
 
 public class Main {
 
@@ -28,8 +27,7 @@ public class Main {
 		w.addKeyListener(listener);
 		w.add(logic.renderer);
 		w.setVisible(true);
-		
-		logic.board.loadLevel("level");
+
 		logic.startGameLoop();
 	}
 }
