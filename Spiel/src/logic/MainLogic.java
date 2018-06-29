@@ -55,7 +55,6 @@ public class MainLogic {
 	public void startGame() {
 		board.loadLevel("level");
 		entityManager.addPlayers();
-		entityManager.entities.add(new Item(1, 1, "pistole"));   //TEST ITEMS
 		if(view == View.MENU) {
 			view = View.BOARD;
 		}
