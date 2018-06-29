@@ -1,8 +1,8 @@
 <Item>
 	<Cooldown>40</Cooldown>
 	<Nahkampf mode = "front">
-		<Range>1</Range>
-		<Damage>4</Damage>
+		<Range>2</Range>
+		<Damage>5</Damage>
 	</Nahkampf>
 	<Texture>schwert</Texture>
 </Item>

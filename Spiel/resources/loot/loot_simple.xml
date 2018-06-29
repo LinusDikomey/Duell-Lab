@@ -4,15 +4,18 @@
 		<Wahrscheinlichkeit>1</Wahrscheinlichkeit>
 	</Item>
 	<Item name="Schwert">
-		<Wahrscheinlichkeit>8</Wahrscheinlichkeit>
+		<Wahrscheinlichkeit>6</Wahrscheinlichkeit>
     </Item>
 	<Item name="Kriegsaxt">
-		<Wahrscheinlichkeit>3</Wahrscheinlichkeit>
+		<Wahrscheinlichkeit>2</Wahrscheinlichkeit>
     </Item>
 	<Item name="Pistole">
-		<Wahrscheinlichkeit>0</Wahrscheinlichkeit>
+		<Wahrscheinlichkeit>2</Wahrscheinlichkeit>
+    </Item>
+    <Item name="Bogen">
+		<Wahrscheinlichkeit>2</Wahrscheinlichkeit>
     </Item>
     <Item name="Dolch">
-		<Wahrscheinlichkeit>8</Wahrscheinlichkeit>
+		<Wahrscheinlichkeit>5</Wahrscheinlichkeit>
     </Item>
 </Loot>

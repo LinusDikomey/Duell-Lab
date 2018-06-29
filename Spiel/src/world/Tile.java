@@ -53,7 +53,7 @@ public class Tile {
 			collisionBox = new Rectangle(Integer.parseInt(collision.getElementsByTagName("X").item(0).getTextContent()), Integer.parseInt(collision.getElementsByTagName("Y").item(0).getTextContent()), Integer.parseInt(collision.getElementsByTagName("Width").item(0).getTextContent()), Integer.parseInt(collision.getElementsByTagName("Height").item(0).getTextContent()));
 			
 			
-			tileList.put(name, this);
+			
 		}
 		
 		if(tile.getElementsByTagName("Attached").getLength() != 0) {
@@ -72,8 +72,29 @@ public class Tile {
 				}
 			}
 		}
+		if(!tileList.containsKey(name)) {
+			tileList.put(name, new Tile(name, health, collidable, destroyable, render, texture, collisionBox, wasDamaged));
+		}
+		
 	}
 	
+	
+	
+	public Tile(String name, int health, boolean collidable, boolean destroyable, boolean render, String texture,
+			Rectangle collisionBox, boolean wasDamaged) {
+		super();
+		this.name = name;
+		this.health = health;
+		this.collidable = collidable;
+		this.destroyable = destroyable;
+		this.render = render;
+		this.texture = texture;
+		this.collisionBox = collisionBox;
+		this.wasDamaged = wasDamaged;
+	}
+
+
+
 	public void damage(int damage) {
 		if(!wasDamaged) {
 			health -= damage;

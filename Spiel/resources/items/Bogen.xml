@@ -2,9 +2,9 @@
 	<Cooldown>20</Cooldown>
 	<Fernkampf mode = "projectile">
 		<Range>15</Range>
-		<Damage>5</Damage>
-		<Magazine>10</Magazine>
-		<ReloadTime>20</ReloadTime>
+		<Damage>8</Damage>
+		<Magazine>1</Magazine>
+		<ReloadTime>40</ReloadTime>
 		<Speed>20</Speed>
 		<ProjectileTexture>arrow</ProjectileTexture>
 	</Fernkampf>

@@ -1,6 +1,7 @@
 package renderer;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
@@ -38,6 +39,12 @@ public class EntityRenderer {
 				}
 				g.setColor(Color.BLUE);
 				g.fillRect(0 + pointer * tilesize, 0, (int) ((pEntity.useDelay / 400f) * tilesize * 10), tilesize);
+				if(pEntity.inventory[pEntity.selectedSlot] != null) {
+					g.setFont(new Font("Arial", Font.BOLD, tilesize));
+					g.drawString("" + pEntity.inventory[pEntity.selectedSlot].currentMagazine, (pointer + 5) * tilesize, tilesize);
+					g.setColor(Color.GREEN);
+					g.fillRect(tilesize * (pointer + 5), 0, tilesize, (int) (tilesize * (pEntity.inventory[pEntity.selectedSlot].currentreload / ( (float) pEntity.inventory[pEntity.selectedSlot].rangedReloadTime))));
+				}
 				int health = pEntity.health;
 				for(int p = pointer; p < pointer + 5; p++) {
 					if(health >= 4) {

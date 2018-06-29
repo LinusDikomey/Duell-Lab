@@ -6,7 +6,7 @@
 		<Wahrscheinlichkeit>5</Wahrscheinlichkeit>
     </Item>
 	<Item name="Pistole">
-		<Wahrscheinlichkeit>1</Wahrscheinlichkeit>
+		<Wahrscheinlichkeit>5</Wahrscheinlichkeit>
     </Item>
 	<Item name="Kriegshammer">
 		<Wahrscheinlichkeit>15</Wahrscheinlichkeit>
@@ -15,7 +15,7 @@
 		<Wahrscheinlichkeit>20</Wahrscheinlichkeit>
     </Item>
 	<Item name="Bogen">
-		<Wahrscheinlichkeit>1</Wahrscheinlichkeit>
+		<Wahrscheinlichkeit>10</Wahrscheinlichkeit>
     </Item>
     <Item name="Pike">
 		<Wahrscheinlichkeit>10</Wahrscheinlichkeit>

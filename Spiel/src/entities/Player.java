@@ -170,14 +170,26 @@ public class Player extends Entity implements Tickable {
 				}
 			}
 		}
-		if (useDelay > 0) {
-			xSpeed *= 0.9f;
-			ySpeed *= 0.9f;
-		}
-		nextX += xSpeed;
-		nextY += ySpeed;
 		
 		Item item = inventory[selectedSlot];
+		
+		if(item != null) {
+			if (useDelay > 0 && item.rangedDamage == 0) {
+				xSpeed *= 0.7f;
+				ySpeed *= 0.7f;
+			}
+			if(item.itemName.equals("Kriegshammer") && useDelay > 0) {
+				xSpeed *= 0.5f;
+				ySpeed *= 0.5f;
+			}
+			
+		}else if (useDelay > 0) {
+			xSpeed *= 0.8f;
+			ySpeed *= 0.8f;
+		}
+		
+		nextX += xSpeed;
+		nextY += ySpeed;
 		
 		if (useItem && useDelay == 0) {
 			if (item == null) {

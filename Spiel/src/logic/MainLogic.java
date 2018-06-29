@@ -6,7 +6,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import entities.Entity;
-import entities.Item;
 import entities.Player;
 import entities.Projectile;
 import renderer.MasterRenderer;

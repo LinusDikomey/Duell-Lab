@@ -39,6 +39,8 @@ public class Item extends Entity {
 	public Item(int x, int y, String itemName) {
 		super(x, y, true);
 		
+		this.itemName = itemName;
+		
 		if(itemList.containsKey(itemName)) {
 			
 			texturePath = itemList.get(itemName).texturePath;
