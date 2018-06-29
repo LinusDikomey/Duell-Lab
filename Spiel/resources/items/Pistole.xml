@@ -6,7 +6,7 @@
 		<Magazine>6</Magazine>
 		<ReloadTime>80</ReloadTime>
 		<Speed>60</Speed>
-		<ProjectileTexture>arrow</ProjectileTexture>
+		<ProjectileTexture>bullet</ProjectileTexture>
 	</Fernkampf>
 	<Texture>pistole</Texture>
 </Item>
