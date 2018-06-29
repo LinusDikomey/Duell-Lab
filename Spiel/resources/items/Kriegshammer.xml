@@ -1,8 +1,7 @@
 <Item>
 	<Cooldown>120</Cooldown>
 	<Nahkampf mode = "radius">
-		<Range>0.8
-		</Range>
+		<Range>0.8</Range>
 		<Offset>2</Offset>
 		<Damage>6</Damage>
 	</Nahkampf>
