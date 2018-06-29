@@ -6,6 +6,7 @@ import java.awt.Rectangle;
 
 import entities.Entity;
 import entities.Player;
+import entities.Projectile;
 import logic.EntityManager;
 import main.Main;
 
@@ -57,6 +58,10 @@ public class EntityRenderer {
 				}
 			}
 		}
-	}
-	
+		
+		for(Projectile p : Main.logic.entityManager.projectiles) {
+			g.drawImage(Main.loader.getImage("items/" + p.texture), p.x * tilesize / 100 -25, p.y * tilesize / 100 -25, 50, 50, null);
+
+		}
+	}	
 }

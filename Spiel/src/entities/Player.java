@@ -216,10 +216,10 @@ public class Player extends Entity implements Tickable {
 				
 				if(item.rangedDamage != 0) {
 					if(item.rangedMagazine > 0) {
-						int projX = x + 50 + (int) (Math.sin(Math.toRadians(rotation)) * 100);
-						int projY = y + 50 +(int) (-Math.cos(Math.toRadians(rotation)) * 100);
+						int projX = x + 50 + (int) (Math.sin(Math.toRadians(rotation)) * 50);
+						int projY = y + 50 + (int) (-Math.cos(Math.toRadians(rotation)) * 50);
 						Main.logic.entityManager.projectiles.add(new Projectile(item.projectileName, projX, projY, item.rangedDamage, item.rangedSpeed, rotation));
-					
+						useDelay = item.cooldown;
 					}
 				}
 			}

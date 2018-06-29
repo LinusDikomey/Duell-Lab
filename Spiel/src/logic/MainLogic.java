@@ -6,7 +6,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import entities.Entity;
+import entities.Item;
 import entities.Player;
+import entities.Projectile;
 import renderer.MasterRenderer;
 import renderer.View;
 import toolbox.Key;
@@ -53,6 +55,7 @@ public class MainLogic {
 	public void startGame() {
 		board.loadLevel("level");
 		entityManager.addPlayers();
+		entityManager.entities.add(new Item(1, 1, "pistole"));   //TEST ITEMS
 		if(view == View.MENU) {
 			view = View.BOARD;
 		}
@@ -77,7 +80,6 @@ public class MainLogic {
 			
 			for(int y = 0; y < Board.SIZE_Y; y++) {
 				for(int x = 0; x < Board.SIZE_X; x++) {
-					board.getTile(x, y).onTick();
 					if(board.tiles[x][y].collidable) {
 						Rectangle box = board.tiles[x][y].collisionBox;
 						Rectangle rect = new Rectangle(x * 100 + box.x, y * 100 + box.y, box.width, box.height);
@@ -92,6 +94,43 @@ public class MainLogic {
 				}
 			}
 			entity.move();
+		}
+		for(Projectile projectile : entityManager.projectiles) {
+			projectile.tick();
+			
+			for(int y = 0; y < Board.SIZE_Y; y++) {
+				for(int x = 0; x < Board.SIZE_X; x++) {
+					if(board.tiles[x][y].collidable) {
+						Rectangle box = board.tiles[x][y].collisionBox;
+						Rectangle rect = new Rectangle(x * 100 + box.x, y * 100 + box.y, box.width, box.height);
+						if (projectile.collidesWith(rect) && board.getTile(x, y).destroyable) {
+							board.getTile(x, y).damage(projectile.damage);
+							if(board.getTile(x, y).health <= 0) {
+								board.setTile(x, y, new Tile("empty", x, y));
+							}
+							projectile.delete = true;
+						}
+						if(entityManager.player1.collidesWith(new Rectangle(projectile.x - 1, projectile.y - 1, 3, 3))) {
+							entityManager.player1.damage(projectile.damage);
+							projectile.delete = true;
+						}
+						if(entityManager.player2.collidesWith(new Rectangle(projectile.x - 1, projectile.y - 1, 3, 3))) {
+							entityManager.player2.damage(projectile.damage);
+							projectile.delete = true;
+						}
+					}
+					
+					if(projectile.delete) {
+						entityManager.projectiles.remove(projectile);
+					}
+				}
+			}
+		}
+		
+		for(int y = 0; y < Board.SIZE_Y; y++) {
+			for(int x = 0; x < Board.SIZE_X; x++) {
+				board.getTile(x, y).onTick();
+			}
 		}
 	}
 	
