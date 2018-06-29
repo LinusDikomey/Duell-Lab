@@ -60,7 +60,7 @@ public class EntityRenderer {
 		}
 		
 		for(Projectile p : Main.logic.entityManager.projectiles) {
-			g.drawImage(Main.loader.getImage("items/" + p.texture), p.x * tilesize / 100 -25, p.y * tilesize / 100 -25, 50, 50, null);
+			g.drawImage(Main.loader.getImage("items/" + p.texture), p.x * tilesize / 100 -(tilesize / 4), p.y * tilesize / 100 -(tilesize / 4), tilesize / 2, tilesize / 2, null);
 
 		}
 	}	

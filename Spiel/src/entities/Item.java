@@ -32,6 +32,7 @@ public class Item extends Entity {
 	
 	public int currentMagazine = 0;
 	public int currentreload = 0;
+	public boolean reloading = false;
 	
 	public static Map<String, Item> itemList = new HashMap<String, Item>();
 	

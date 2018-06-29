@@ -176,8 +176,10 @@ public class Player extends Entity implements Tickable {
 		}
 		nextX += xSpeed;
 		nextY += ySpeed;
+		
+		Item item = inventory[selectedSlot];
+		
 		if (useItem && useDelay == 0) {
-			Item item = inventory[selectedSlot];
 			if (item == null) {
 				useDelay = 20;
 				int damX = x + 50 + (int) (Math.sin(Math.toRadians(rotation)) * 100);
@@ -215,17 +217,31 @@ public class Player extends Entity implements Tickable {
 				}
 				
 				if(item.rangedDamage != 0) {
-					if(item.rangedMagazine > 0) {
+					if(item.currentMagazine > 0) {
 						int projX = x + 50 + (int) (Math.sin(Math.toRadians(rotation)) * 50);
 						int projY = y + 50 + (int) (-Math.cos(Math.toRadians(rotation)) * 50);
 						Main.logic.entityManager.projectiles.add(new Projectile(item.projectileName, projX, projY, item.rangedDamage, item.rangedSpeed, rotation));
 						useDelay = item.cooldown;
+						item.currentMagazine--;
+					}else {
+						item.reloading = true;
 					}
 				}
 			}
 
 		} else if (useDelay > 0) {
 			useDelay--;
+		}
+		
+		if(item != null) {
+			if(item.reloading) {
+				item.currentreload++;
+				if(item.currentreload >= item.rangedReloadTime) {
+					item.reloading = false;
+					item.currentreload = 0;
+					item.currentMagazine = item.rangedMagazine;
+				}
+			}
 		}
 	}
 
